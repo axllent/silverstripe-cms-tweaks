@@ -1,0 +1,25 @@
+{
+	"name": "axllent/silverstripe-cms-tweaks",
+	"description": "Several CMS usability improvements",
+	"type": "silverstripe-module",
+	"homepage": "https://github.com/axllent/silverstripe-cms-tweaks",
+	"keywords": [
+		"silverstripe",
+		"cms",
+		"tweaks",
+		"javascript"
+	],
+	"license": "The MIT License (MIT)",
+	"authors": [
+		{
+			"name": "Ralph Slooten",
+			"homepage": "http://www.axllent.org/"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/axllent/silverstripe-cms-tweaks/issues"
+	},
+	"require": {
+		"silverstripe/cms": "3.0.*"
+	}
+}

@@ -1,0 +1,48 @@
+/* Custom class to align some tabs to the right */
+li.tab-to-right {
+	float: right!important;
+}
+
+/* Force scroll in CMS to prevent tabs jumping */
+div.cms-content-fields {
+	overflow-y: scroll !important;
+}
+div.cms-content-fields.ui-widget {
+	overflow-y: auto !important;
+}
+
+/* Remove Chrome outline of selected tabs */
+.ui-tabs-nav a:focus{
+	outline: none;
+}
+
+p.metastats {
+	padding: 3px 5px 3px 0;
+	margin: 0;
+	max-width: 690px;
+	text-align: right;
+	color: #666;
+}
+
+.ui-accordion-content p,
+.ui-accordion-content h1,
+.ui-accordion-content h2,
+.ui-accordion-content h3,
+.ui-accordion-content h4,
+.ui-accordion-content h5
+{
+	padding-left: 15px;
+}
+p.extrametawarning {
+	color: red;
+}
+
+/* Notice wrapper */
+div.notice-wrap p {
+	font-family: Arial,​sans-serif;
+}
+
+/* Uploadfield fields wider */
+#Form_EditForm_Title, #Form_EditForm_Name {
+	width: 370px;
+}
