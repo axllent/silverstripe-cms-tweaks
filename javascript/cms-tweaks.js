@@ -34,7 +34,7 @@
 		});
 
 		/* Provide word / character stats on MetaDescription & MetaTitle input fields */
-		$('input#Form_EditForm_MetaTitle, textarea#Form_EditForm_MetaDescription').entwine({
+		$('textarea#Form_EditForm_MetaDescription').entwine({
 			onkeyup: function(){
 				this.updateStats();
 			},
@@ -54,11 +54,15 @@
 				$('#' + this.attr('id') + 'Stats').text(words + ' words | ' + chars +' chars');
 			}
 		});
-
 	});
-})(jQuery);
 
-(function($){
+	/* Set the default layout to 'content' */
+	$.entwine('ss.preview', function($){
+		$('.cms-preview').entwine({
+			DefaultMode: 'content'
+		});
+	});
+
 	/* Set website logo to return to website */
 	$('div.cms-logo a').entwine({
 		onmatch: function(){
@@ -67,4 +71,5 @@
 			this.removeAttr('target');
 		}
 	});
+
 })(jQuery);

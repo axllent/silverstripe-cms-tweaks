@@ -46,3 +46,7 @@ div.notice-wrap p {
 #Form_EditForm_Title, #Form_EditForm_Name {
 	width: 370px;
 }
+
+.cms .grid-csv-button {
+	margin-top: 0;
+}
