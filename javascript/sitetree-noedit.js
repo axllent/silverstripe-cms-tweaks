@@ -20,7 +20,8 @@
 		/* Hide page "drag" bars in SiteTree */
 		$('div.cms-tree a ins.jstree-icon').entwine({
 			onmatch: function(){
-				this.hide();
+				if (!this.hasClass('jstree-checkbox')) /* Fix cms inconsistencies when Pages loaded through ajax */
+					this.hide();
 			}
 		});
 
