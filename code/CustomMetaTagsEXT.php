@@ -19,7 +19,10 @@ class CustomMetaTagsEXT extends SiteTreeExtension {
 
 		array_push($advancedFields, new HeaderField('SeoHdr', 'Search Engine Optimization', 2));
 		array_push($advancedFields, new LiteralField('StatsDescription', '<p class="metastats" id="Form_EditForm_MetaDescriptionStats"></p>'));
-		array_push($advancedFields, new TextareaField('MetaDescription', 'Meta Description'));
+		array_push($advancedFields,
+			$tf = new TextareaField('MetaDescription', 'Meta Description')
+		);
+		$tf->addExtraClass('noenter');
 
 		array_push($advancedFields,
 			new LiteralField('ExtraWarning', '<p class="extrametawarning">Only edit this if you know

@@ -7,9 +7,9 @@
 			}
 		});
 
-		/* Prevent enter from submitting */
+		/* Prevent enter key from submitting */
 		$('.cms-edit-form .field.date input, .cms-edit-form .field.text input,' +
-			' #Form_EditForm_MetaDescription').entwine({
+			'.cms-edit-form .noenter').entwine({
 			onkeydown: function(e){
 				if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13))
 					e.preventDefault();
