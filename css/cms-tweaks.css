@@ -50,3 +50,12 @@ div.notice-wrap p {
 .cms .grid-csv-button {
 	margin-top: 0;
 }
+
+/* Notice fields */
+.cms-edit-form .message {
+	margin-bottom: 0;
+}
+.cms-edit-form .ui-tabs-panel .message {
+	margin-top: 0;
+	margin-bottom: 16;
+}

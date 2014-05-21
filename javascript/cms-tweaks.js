@@ -54,6 +54,14 @@
 				$('#' + this.attr('id') + 'Stats').text(words + ' words | ' + chars +' chars');
 			}
 		});
+
+		$('#Root .noticefield').entwine({
+			onmatch: function(){
+				jQuery(this).detach().insertAfter('#Form_ItemEditForm_error');
+				// this.attr('title', 'Search engine optimization (SEO) etc');
+			}
+		});
+
 	});
 
 	/* Set the default layout to 'content' */
