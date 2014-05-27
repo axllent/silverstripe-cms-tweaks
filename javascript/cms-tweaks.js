@@ -55,10 +55,13 @@
 			}
 		});
 
+		/* move any notices to above the tabs */
 		$('#Root .noticefield').entwine({
 			onmatch: function(){
-				jQuery(this).detach().insertAfter('#Form_ItemEditForm_error');
-				// this.attr('title', 'Search engine optimization (SEO) etc');
+				if ($('#Form_EditForm_error'))
+					jQuery(this).detach().insertAfter('#Form_EditForm_error');
+				else if ($('Form_ItemEditForm_error'))
+					jQuery(this).detach().insertAfter('#Form_ItemEditForm_error');
 			}
 		});
 
