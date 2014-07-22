@@ -44,7 +44,7 @@ div.notice-wrap p {
 
 /* Uploadfield fields wider */
 #Form_EditForm_Title, #Form_EditForm_Name {
-	width: 370px;
+	width: 100%;
 }
 
 .cms .grid-csv-button {
