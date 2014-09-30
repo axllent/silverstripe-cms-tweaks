@@ -1,3 +1,7 @@
+/*
+ * Do not display error pages in SiteTree or file selector
+ * loaded only when !Permission::check('SITETREE_REORGANISE')
+ */
 (function($){
 	$.entwine('ss', function($){
 

@@ -1,0 +1,11 @@
+LeftAndMain:
+  extensions:
+    - LeftAndMainCMSTweaksExt
+
+SiteTree:
+  extensions:
+    - MetaTagsEditorExt
+
+ContentController:
+  extensions:
+    - MetaTagsExt

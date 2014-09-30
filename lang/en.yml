@@ -1,0 +1,5 @@
+en:
+  SiteTree:
+    MENUTITLE: 'Navigation Label'
+    PAGETITLE: 'Meta Title'
+    METADESCHELP: 'Search engines use this content for displaying search results.'

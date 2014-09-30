@@ -24,11 +24,9 @@ class NoticeField extends LiteralField {
      */
     protected $content;
 
-    public function __construct($name, $content, $class = false) {
+    public function __construct($name, $content, $class = 'notice') {
 
-        $class = ($class) ? ' ' . htmlspecialchars($class) : false;
-
-        $content = '<p class="noticefield message' . $class . '">' . $content . '</p>';
+        $content = '<p class="noticefield message ' . $class . '">' . $content . '</p>';
 
         parent::__construct($name, $content);
     }

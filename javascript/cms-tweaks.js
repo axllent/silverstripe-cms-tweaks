@@ -34,6 +34,27 @@
 		});
 
 		/* Provide word / character stats on MetaDescription & MetaTitle input fields */
+		$('input#Form_EditForm_MetaTitle').entwine({
+			onkeyup: function(){
+				this.updateStats();
+			},
+			onmatch: function(){
+				this.updateStats();
+			},
+			updateStats: function(){
+				var wordCounts = {};
+				var v = this.val().trim();
+				var matches = v.match(/\b/g);
+				wordCounts[this.id] = matches ? matches.length / 2 : 0;
+				var words = 0;
+				$.each(wordCounts, function(k, v){
+					words += v;
+				});
+				var chars = v.replace(/\s+/g, ' ').length;
+				$('#' + this.attr('id') + 'Stats').text(words + ' words | ' + chars +' chars');
+			}
+		});
+
 		$('textarea#Form_EditForm_MetaDescription').entwine({
 			onkeyup: function(){
 				this.updateStats();

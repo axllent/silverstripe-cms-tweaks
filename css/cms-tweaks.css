@@ -15,8 +15,8 @@ div.cms-content-fields.ui-widget {
 .ui-tabs-nav a:focus{
 	outline: none;
 }
-
-p.metastats {
+/* MetaData stats */
+p.metastats, p.metatitle {
 	padding: 3px 5px 3px 0;
 	margin: 0;
 	max-width: 690px;

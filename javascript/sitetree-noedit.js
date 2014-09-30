@@ -1,3 +1,7 @@
+/*
+* Do not display ability to add pages or Settings tab
+* loaded only when !Permission::check('SITETREE_REORGANISE')
+*/
 (function($){
 	$.entwine('ss', function($){
 
