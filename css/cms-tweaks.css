@@ -59,3 +59,11 @@ div.notice-wrap p {
 	margin-top: 0;
 	margin-bottom: 16;
 }
+
+/* darker drop-shadow on context menus, light grey sucks */
+.cms #vakata-contextmenu, .TreeDropdownField .treedropdownfield-panel #vakata-contextmenu,
+.cms #vakata-contextmenu li ul, .TreeDropdownField .treedropdownfield-panel #vakata-contextmenu li ul {
+    -webkit-box-shadow:0px 0px 10px #444;
+	-moz-box-shadow: 0px 0px 10px #444;
+	box-shadow: 0px 0px 10px #444;
+}
