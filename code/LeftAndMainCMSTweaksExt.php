@@ -8,13 +8,12 @@
 * License: MIT-style license http://opensource.org/licenses/MIT
 * Authors: Techno Joy development team (www.technojoy.co.nz)
 */
+
 class LeftAndMainCMSTweaksExt extends LeftAndMainExtension {
 
 	public function init() {
 
 		parent::init();
-
-		$this->setHtmlEditorConfig();
 
 		Requirements::css($this->ModuleBase() . '/css/cms-tweaks.css');
 
@@ -33,6 +32,11 @@ class LeftAndMainCMSTweaksExt extends LeftAndMainExtension {
 			Requirements::javascript($this->ModuleBase() . '/javascript/hide-error-pages.js');
 		}
 
+	}
+
+	/* needs to be onBeforeInit() to get called before cms load */
+	public function onBeforeInit() {
+		$this->setHtmlEditorConfig();
 	}
 
 	/*
