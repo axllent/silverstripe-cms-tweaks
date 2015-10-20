@@ -24,8 +24,10 @@
 		/* Hide page "drag" bars in SiteTree */
 		$('div.cms-tree a ins.jstree-icon').entwine({
 			onmatch: function(){
-				if (!this.hasClass('jstree-checkbox')) /* Fix cms inconsistencies when Pages loaded through ajax */
+				if (!this.hasClass('jstree-checkbox')){ /* Fix cms inconsistencies when Pages loaded through ajax */
 					this.hide();
+					this.parent().css('padding-left', '0'); // Remove padding-left
+				}
 			}
 		});
 
