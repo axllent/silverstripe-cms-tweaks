@@ -9,9 +9,11 @@
  * @license: MIT-style license http://opensource.org/licenses/MIT
  * @author: Techno Joy development team (www.technojoy.co.nz)
  */
-class MetaTagsExt extends Extension {
+class MetaTagsExt extends Extension
+{
 
-    public function MetaTags($includeTitle = true) {
+    public function MetaTags($includeTitle = true)
+    {
         $customFields = array();
 
         if ($includeTitle === true || $includeTitle == 'true') {
@@ -40,5 +42,4 @@ class MetaTagsExt extends Extension {
 
         return trim($metadata);
     }
-
 }
