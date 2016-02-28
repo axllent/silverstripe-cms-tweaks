@@ -1,4 +1,4 @@
-SilverStripe 3.1 CMS Tweaks
+SilverStripe 3 CMS Tweaks
 ===========================
 Module to add a series of tweaks/modifications to the SilverStripe CMS.
 The goal is to make the CMS less confusing for non-technical users,
@@ -25,4 +25,4 @@ removing functionality some they can't use (ie: non SITETREE_REORGANISE users).
 * Remove "Help" link
 
 ## Requirements
-* SilverStripe 3.1
+* SilverStripe >=3.2
