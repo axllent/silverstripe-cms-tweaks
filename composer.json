@@ -21,6 +21,6 @@
 		"issues": "https://github.com/axllent/silverstripe-cms-tweaks/issues"
 	},
 	"require": {
-		"silverstripe/cms": "3.3.*"
+		"silverstripe/cms": ">=3.2"
 	}
 }
