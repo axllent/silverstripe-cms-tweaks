@@ -32,6 +32,22 @@ class LeftAndMainCMSTweaksExt extends LeftAndMainExtension
         if (!Permission::check('ADMIN')) {
             Requirements::javascript($this->ModuleBase() . '/javascript/hide-error-pages.js');
         }
+
+        /* Add file timestamps for TinyMCE's content_css */
+        $css = HtmlEditorConfig::get('cms')->getOption('content_css');
+        if ($css) {
+            $base_folder = Director::baseFolder();
+            $timestamped_css = array();
+            $regular_css = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
+            foreach ($regular_css as $file) {
+                if (is_file($base_folder . '/' . $file)) {
+                    array_push($timestamped_css, $file . '?' . filemtime($base_folder . '/' . $file));
+                }
+            }
+            if (count($timestamped_css > 0)) {
+                HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
+            }
+        }
     }
 
     /* needs to be onBeforeInit() to get called before cms load */
