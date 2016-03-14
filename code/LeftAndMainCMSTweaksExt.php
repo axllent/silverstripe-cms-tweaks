@@ -41,7 +41,7 @@ class LeftAndMainCMSTweaksExt extends LeftAndMainExtension
             $regular_css = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
             foreach ($regular_css as $file) {
                 if (is_file($base_folder . '/' . $file)) {
-                    array_push($timestamped_css, $file . '?' . filemtime($base_folder . '/' . $file));
+                    array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
                 }
             }
             if (count($timestamped_css > 0)) {
