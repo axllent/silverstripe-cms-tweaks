@@ -14,16 +14,17 @@ functionality some they can't use (ie: non SITETREE_REORGANISE users).
 - JavaScript word/character count for MetaDescription
 - Clean MetaDescription for any new lines and double-spaces upon save
 - Dependent pages (if any) displayed on Advanced tab
-- Hide add/delete page buttons when user has no `SITETREE_REORGANISE` permissions
+- Hide add/Archive page buttons when user has no `SITETREE_REORGANISE` permissions
 - Hide CMS ErrorPages to non-admin users in CMS as well as file/link selectors
-- Remove SiteTree drag handle for when user has no `SITETREE_REORGANISE` permissions
+- Remove SiteTree drag handle when user has no `SITETREE_REORGANISE` permissions
+- Remove "Duplicate" content menu when user has no `SITETREE_REORGANISE` permissions
 - Prevent accidental form submission in CMS when the enter key is used
 - Add "Remove formatting" button to TinyMCE to clean code
 - Add some invalid elements to TinyMCE
 - Optional "noenter" class can be added to any TextFields to prevent new lines (eg: MetaDescription)
 - Link logo in CMS to website homepage rather than silverstripe.org
 - Remove "Help" link
-- Add timestamps to TinyMCE's `content_css` css files
+- Add timestamps to TinyMCE's `content_css` css files to ensure changed css doesn't get cached
 
 ## Requirements
-- SilverStripe >=3.2
+- SilverStripe >=3.3
