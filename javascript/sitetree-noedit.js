@@ -5,14 +5,21 @@
 (function($){
 	$.entwine('ss', function($){
 
-		/* Hide Add Page button */
+		/* Hide "Add page" button */
 		$('a[href="admin/pages/add/"]').entwine({
 			onmatch: function(){
 				this.hide();
 			}
 		});
 
-		/* Hide Settings Tab */
+		/* Hide "duplicate" content menu */
+		$('#vakata-contextmenu a[rel="duplicate"]').entwine({
+			onmatch: function(){
+				this.parent().hide();
+			}
+		});
+
+		/* Hide "Settings" tab */
 		$('ul.ui-tabs-nav > li').entwine({
 			onmatch: function(){
 				var c = this.text().trim();
@@ -31,7 +38,7 @@
 			}
 		});
 
-		/* Hide Settings Tab */
+		/* Hide "Unpublish" menu */
 		$('button[name="action_unpublish"]').entwine({
 			onmatch: function(){
 				this.hide();
