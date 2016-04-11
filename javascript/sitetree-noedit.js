@@ -6,7 +6,7 @@
 	$.entwine('ss', function($){
 
 		/* Hide Add Page button */
-		$('a.cms-page-add-button').entwine({
+		$('a[href="admin/pages/add/"]').entwine({
 			onmatch: function(){
 				this.hide();
 			}
