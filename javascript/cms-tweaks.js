@@ -86,18 +86,6 @@
 			}
 		});
 
-		/* add back nav button to modeladmin pages */
-		$('#page-title-heading').entwine({
-			onmatch: function(){
-				var lastlink = this.children("a.cms-panel-link.crumb").last();
-				if (lastlink.text() != '')
-				 {
-					var linkto = lastlink.attr('href');
-					this.prepend('<a href="'+linkto+'" style="font-size:10px;margin-top:-8px;line-height:12px;height:21px;" class="backlink ss-ui-button cms-panel-link ui-button ui-state-default ui-corner-all ui-button-text-icon-primary" data-icon="back">Back</a>');
-				 }
-			}
-		});
-
 	});
 
 	/* Set the default layout to 'content' */
