@@ -67,3 +67,8 @@ div.notice-wrap p {
 	-moz-box-shadow: 0px 0px 10px #444;
 	box-shadow: 0px 0px 10px #444;
 }
+
+/* left-align right-titles on UploadFields */
+.ss-uploadfield label[class="right"] {
+    margin-left: 0;
+}
