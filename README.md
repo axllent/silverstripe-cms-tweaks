@@ -27,4 +27,4 @@ functionality some they can't use (ie: non SITETREE_REORGANISE users).
 - Add timestamps to TinyMCE's `content_css` css files to ensure changed css doesn't get cached
 
 ## Requirements
-- SilverStripe >=3.3
+- SilverStripe ~3.3
