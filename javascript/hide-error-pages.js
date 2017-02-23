@@ -12,6 +12,13 @@
 			}
 		});
 
+        /* Hide error pages in page link dropdowns */
+        $('li.class-ErrorPage').entwine({
+            onmatch: function(){
+                this.hide();
+            }
+        });
+
 		/* Hide error-xxx.html from file selector dropdowns */
 		$('li.class-File').entwine({
 			onmatch: function(){
