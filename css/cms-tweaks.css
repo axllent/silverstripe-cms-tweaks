@@ -72,3 +72,10 @@ div.notice-wrap p {
 .ss-uploadfield label[class="right"] {
     margin-left: 0;
 }
+
+/* Prevent CMS $SiteTitle from wrapping */
+.cms-logo span {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
