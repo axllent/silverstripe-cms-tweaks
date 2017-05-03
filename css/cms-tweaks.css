@@ -1,81 +1,10 @@
-/* Custom class to align some tabs to the right */
-li.tab-to-right {
-	float: right!important;
-}
-
-/* Force scroll in CMS to prevent tabs jumping */
-div.cms-content-fields {
-	overflow-y: scroll !important;
-}
-div.cms-content-fields.ui-widget {
-	overflow-y: auto !important;
-}
-
-/* Remove Chrome outline of selected tabs */
-.ui-tabs-nav a:focus{
-	outline: none;
-}
-/* MetaData stats */
-p.metastats, p.metatitle {
-	padding: 3px 5px 3px 0;
-	margin: 0;
-	max-width: 690px;
-	text-align: right;
-	color: #666;
-}
-
-.ui-accordion-content p,
-.ui-accordion-content h1,
-.ui-accordion-content h2,
-.ui-accordion-content h3,
-.ui-accordion-content h4,
-.ui-accordion-content h5
-{
-	padding-left: 15px;
-}
-p.extrametawarning {
-	color: red;
-}
-
-/* Notice wrapper */
-div.notice-wrap p {
-	font-family: Arial,​sans-serif;
-}
-
-/* Uploadfield fields wider */
-#Form_EditForm_Title, #Form_EditForm_Name {
-	width: 100%;
-}
-
-.cms .grid-csv-button {
-	margin-top: 0;
-}
-
-/* Notice fields */
-.cms-edit-form .message {
-	margin-bottom: 0;
-}
-.cms-edit-form .ui-tabs-panel .message {
-	margin-top: 0;
-	margin-bottom: 16;
-}
-
-/* darker drop-shadow on context menus, light grey sucks */
-.cms #vakata-contextmenu, .TreeDropdownField .treedropdownfield-panel #vakata-contextmenu,
-.cms #vakata-contextmenu li ul, .TreeDropdownField .treedropdownfield-panel #vakata-contextmenu li ul {
-    -webkit-box-shadow:0px 0px 10px #444;
-	-moz-box-shadow: 0px 0px 10px #444;
-	box-shadow: 0px 0px 10px #444;
-}
-
-/* left-align right-titles on UploadFields */
-.ss-uploadfield label[class="right"] {
-    margin-left: 0;
-}
-
-/* Prevent CMS $SiteTitle from wrapping */
 .cms-logo span {
-	white-space: nowrap;
 	text-overflow: ellipsis;
+	white-space: nowrap;
 	overflow: hidden;
 }
+
+
+/*.cms .jstree li > .jstree-icon {
+		display: none!important;
+}*/
