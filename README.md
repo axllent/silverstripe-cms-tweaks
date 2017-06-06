@@ -23,5 +23,9 @@ functionality some they can't use (ie: non SITETREE_REORGANISE users).
 - Link logo in CMS to website homepage rather than silverstripe.org
 - Remove "Help" link
 
+## Metadata Tab
+The MetadataTab extension (by default) moves the Metadata information from below the Content field into its own tab.
+Please refer to the [Metadata Tab documentation](docs/en/MetadataTab.md) for configuration options.
+
 ## Requirements
 - SilverStripe ^4.0

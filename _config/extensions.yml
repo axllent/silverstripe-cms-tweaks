@@ -4,4 +4,4 @@ SilverStripe\Admin\LeftAndMain:
 
 SilverStripe\CMS\Model\SiteTree:
   extensions:
-    - Axllent\CMSTweaks\SEOTab
+    - Axllent\CMSTweaks\MetadataTab
