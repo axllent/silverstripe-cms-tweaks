@@ -12,7 +12,6 @@
 namespace Axllent\CMSTweaks;
 
 use SilverStripe\CMS\Model\SiteTreeExtension;
-use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\Tab;
 
 class MetadataTab extends SiteTreeExtension
@@ -24,7 +23,7 @@ class MetadataTab extends SiteTreeExtension
 
     public function updateCMSFields(\SilverStripe\Forms\FieldList $fields)
     {
-        $config = Config::inst();
+        $config = SilverStripe\Core\Config\Config::inst();
 
         $use_tab = $config->get('Axllent\CMSTweaks\MetadataTab', 'use_tab');
         $tab_title = $config->get('Axllent\CMSTweaks\MetadataTab', 'tab_title');

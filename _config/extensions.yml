@@ -1,6 +1,6 @@
 SilverStripe\Admin\LeftAndMain:
   extensions:
-    - Axllent\CMSTweaks\LeftAndMainCMSTweaksExt
+    - Axllent\CMSTweaks\CMSTweaks
 
 SilverStripe\CMS\Model\SiteTree:
   extensions:
