@@ -1,3 +1,7 @@
 SilverStripe\Admin\LeftAndMain:
   extensions:
     - Axllent\CMSTweaks\LeftAndMainCMSTweaksExt
+
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - Axllent\CMSTweaks\SEOTab

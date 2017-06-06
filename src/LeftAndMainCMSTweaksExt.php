@@ -17,6 +17,7 @@ use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\Control\Director;
 use SilverStripe\View\Requirements;
 use SilverStripe\Security\Permission;
+use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 
 class LeftAndMainCMSTweaksExt extends LeftAndMainExtension
 {
@@ -31,7 +32,7 @@ class LeftAndMainCMSTweaksExt extends LeftAndMainExtension
 
 		Requirements::javascript($this->ModuleBase() . '/javascript/cms-tweaks.js');
 
-		// CMSMenu::remove_menu_item('Help');
+		CMSMenu::remove_menu_item('Help');
 
 		/* Hide "Add new" page, page Settings tab */
         if (!Permission::check('SITETREE_REORGANISE')) {
@@ -82,7 +83,7 @@ class LeftAndMainCMSTweaksExt extends LeftAndMainExtension
     /* needs to be onBeforeInit() to get called before cms load */
     public function onBeforeInit()
     {
-        // $this->setHtmlEditorConfig();
+        $this->setHtmlEditorConfig();
     }
 
     /*
@@ -90,14 +91,15 @@ class LeftAndMainCMSTweaksExt extends LeftAndMainExtension
      */
     public function setHtmlEditorConfig()
     {
-        // HtmlEditorConfig::get('cms')->insertButtonsAfter('pasteword', 'removeformat');
-        // HtmlEditorConfig::get('cms')->setOptions(array(
-        //     /* Strip out <div> tags */
-        //     'invalid_elements' => 'div',
-        //     /* The "span[!class]" is to address the issue where lists get inline css style.
-        //     See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html */
-        //     'extended_valid_elements' => 'span[!class|!style],p[class|style]'
-        // ));
+        HtmlEditorConfig::get('cms')->insertButtonsAfter('paste', 'removeformat');
+        HtmlEditorConfig::get('cms')->removeButtons('paste');
+        HtmlEditorConfig::get('cms')->setOptions(array(
+            /* Strip out <div> tags */
+            'invalid_elements' => 'div',
+            /* The "span[!class]" is to address the issue where lists get inline css style.
+            See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html */
+            'extended_valid_elements' => 'span[!class|!style],p[class|style]'
+        ));
     }
 
     private function ModuleBase()

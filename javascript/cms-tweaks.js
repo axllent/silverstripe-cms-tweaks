@@ -10,6 +10,9 @@
 			}
 		});
 
+        /* remove `target` from logo links */
+        $('#cms-menu .cms-logo a').removeAttr('target');
+
 		/* Provide word / character stats on MetaDescription & MetaTitle input fields */
 		// $('input#Form_EditForm_MetaTitle').entwine({
 		// 	onkeyup: function(){
