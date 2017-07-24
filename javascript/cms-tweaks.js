@@ -57,14 +57,14 @@
 		// });
 
 		/* move any notices to above the tabs */
-		$('#Root .noticefield').entwine({
-			onmatch: function(){
-				if ($('#Form_EditForm_error').length != 0)
-					jQuery(this).detach().insertAfter('#Form_EditForm_error');
-				else if ($('#Form_ItemEditForm_error').length != 0)
-					jQuery(this).detach().insertAfter('#Form_ItemEditForm_error');
-			}
-		});
+		// $('#Root .noticefield').entwine({
+		// 	onmatch: function(){
+		// 		if ($('#Form_EditForm_error').length != 0)
+		// 			jQuery(this).detach().insertAfter('#Form_EditForm_error');
+		// 		else if ($('#Form_ItemEditForm_error').length != 0)
+		// 			jQuery(this).detach().insertAfter('#Form_ItemEditForm_error');
+		// 	}
+		// });
 
 	});
 
