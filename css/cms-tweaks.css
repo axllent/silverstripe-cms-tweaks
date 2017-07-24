@@ -12,3 +12,8 @@
 .pull-right {
     float: right!important;
 }
+
+
+.ss-toggle .ui-accordion-content {
+    padding: 15px;
+}
