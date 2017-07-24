@@ -107,7 +107,8 @@ class CMSTweaks extends LeftAndMainExtension
             /* The "span[!class]" is to address the issue where lists get inline css style.
             See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html */
             'extended_valid_elements' => 'span[!class|!style],p[class|style]'
-        ));
+       ));
+        // HtmlEditorConfig::get('cms')->
     }
 
     private function ModuleBase()
