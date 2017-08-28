@@ -17,3 +17,24 @@
 .ss-toggle .ui-accordion-content {
     padding: 15px;
 }
+
+
+.counter-container {
+    position: relative;
+}
+
+/* Meta Title / Description counters */
+.counter-container .charcounter {
+    display: none;
+}
+.counter-container.counter-visible .charcounter {
+    position: absolute;
+    display: block;
+    bottom: -25px;
+    right: 25px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    /*opacity: 0.5;*/
+    padding: 2px 5px;
+    border-radius: 10px;
+}
