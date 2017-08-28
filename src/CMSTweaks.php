@@ -23,7 +23,9 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 class CMSTweaks extends LeftAndMainExtension
 {
 
-    /* @config */
+    /**
+     * @config boolean
+     */
     private static $hide_help = true;
 
     public function init()
@@ -38,7 +40,7 @@ class CMSTweaks extends LeftAndMainExtension
 
 		Requirements::javascript($this->ModuleBase() . '/javascript/cms-tweaks.js');
 
-        if ($config->get('Axllent\CMSTweaks\CMSTweaks', 'hide_help')) {
+        if ($config->get('Axllent\\CMSTweaks\\CMSTweaks', 'hide_help')) {
             CMSMenu::remove_menu_item('Help');
         }
 
@@ -52,25 +54,6 @@ class CMSTweaks extends LeftAndMainExtension
             Requirements::javascript($this->ModuleBase() . '/javascript/hide-error-pages.js');
         }
 
-		// private static $application_link = '//www.silverstripe.org/';
-
-        // Requirements::css($this->ModuleBase() . '/css/cms-tweaks.css');
-		//
-        // Requirements::javascript($this->ModuleBase() . '/javascript/cms-tweaks.js');
-		//
-        // /* Remove help link */
-        // CMSMenu::remove_menu_item('Help');
-		//
-        // /* Hide "Add new" page, page Settings tab */
-        // if (!Permission::check('SITETREE_REORGANISE')) {
-        //     Requirements::javascript($this->ModuleBase() . '/javascript/sitetree-noedit.js');
-        // }
-		//
-        // /* Hide all error pages in SiteTree and Files (modeladmin) */
-        // if (!Permission::check('ADMIN')) {
-        //     Requirements::javascript($this->ModuleBase() . '/javascript/hide-error-pages.js');
-        // }
-		//
         // /* Add file timestamps for TinyMCE's content_css */
         // $css = HtmlEditorConfig::get('cms')->getOption('content_css');
         // if ($css) {

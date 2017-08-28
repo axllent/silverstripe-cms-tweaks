@@ -46,6 +46,5 @@
 				this.parent().children("button").not('.removed-no-edit').first().addClass('ui-corner-left');
 			}
 		});
-
 	});
 })(jQuery);

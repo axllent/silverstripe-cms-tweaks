@@ -4,20 +4,17 @@
  */
 (function($){
 	$.entwine('ss', function($){
-        // alert("yes");
 		/* Hide error pages in SiteTree */
 		$('li[data-pagetype$="\ErrorPage"]').entwine({
 			onmatch: function(){
 				this.hide();
 			}
 		});
-
         /* Hide error pages in page link dropdowns */
         $('li.class-ErrorPage').entwine({
             onmatch: function(){
                 this.hide();
             }
         });
-
 	});
 })(jQuery);

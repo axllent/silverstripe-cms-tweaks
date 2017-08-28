@@ -6,7 +6,8 @@ The metadata tab (by default) moves the content from the metadata composite fiel
 
 ```yml
 Axllent\CMSTweaks\MetadataTab:
-  use_tab: true         # default true
-  tab_title: 'SEO'      # default `Advanced`
-  tab_to_right: true    # default true
+  use_tab: true                 # default true
+  tab_title: 'SEO'              # default `Advanced`
+  tab_to_right: true            # default true
+  page_name_title: 'Meta Title' # rename "Page name" to "Meta Title"
 ```
