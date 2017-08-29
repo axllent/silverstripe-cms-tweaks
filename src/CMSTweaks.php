@@ -53,22 +53,6 @@ class CMSTweaks extends LeftAndMainExtension
         if (!Permission::check('ADMIN')) {
             Requirements::javascript($this->ModuleBase() . '/javascript/hide-error-pages.js');
         }
-
-        // /* Add file timestamps for TinyMCE's content_css */
-        // $css = HtmlEditorConfig::get('cms')->getOption('content_css');
-        // if ($css) {
-        //     $base_folder = Director::baseFolder();
-        //     $timestamped_css = array();
-        //     $regular_css = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
-        //     foreach ($regular_css as $file) {
-        //         if (is_file($base_folder . '/' . $file)) {
-        //             array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
-        //         }
-        //     }
-        //     if (count($timestamped_css > 0)) {
-        //         HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
-        //     }
-        // }
     }
 
     /* needs to be onBeforeInit() to get called before cms load */
@@ -91,7 +75,35 @@ class CMSTweaks extends LeftAndMainExtension
             See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html */
             'extended_valid_elements' => 'span[!class|!style],p[class|style]'
        ));
-        // HtmlEditorConfig::get('cms')->
+
+       /* Add file timestamps for TinyMCE's editor_css */
+       $css_config = HtmlEditorConfig::get('cms')->config()->get('editor_css');
+       if (!empty($css_config)) {
+           $timestamped_css = [];
+           $base_folder = Director::baseFolder();
+           foreach ($css_config as $file) {
+               if (is_file($base_folder . '/' . $file)) {
+                   array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
+               }
+           }
+           HtmlEditorConfig::get('cms')->config()->set('editor_css', $timestamped_css);
+       }
+
+       /* Add file timestamps for TinyMCE's content_css */
+       $css = HtmlEditorConfig::get('cms')->getOption('content_css');
+       if (!empty($css)) {
+           $base_folder = Director::baseFolder();
+           $timestamped_css = [];
+           $regular_css = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
+           foreach ($regular_css as $file) {
+               if (is_file($base_folder . '/' . $file)) {
+                   array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
+               }
+           }
+           if (count($timestamped_css > 0)) {
+               HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
+           }
+       }
     }
 
     private function ModuleBase()
