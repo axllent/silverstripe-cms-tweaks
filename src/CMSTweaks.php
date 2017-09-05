@@ -12,17 +12,17 @@
 namespace Axllent\CMSTweaks;
 
 use SilverStripe\Admin\CMSMenu;
-use SilverStripe\Core\Config\Config;
-use SilverStripe\Admin\LeftAndMainExtension;
 use SilverStripe\Admin\LeftAndMain;
+use SilverStripe\Admin\LeftAndMainExtension;
 use SilverStripe\Control\Director;
-use SilverStripe\View\Requirements;
-use SilverStripe\Security\Permission;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
+use SilverStripe\Security\Permission;
+use SilverStripe\View\Requirements;
 
 class CMSTweaks extends LeftAndMainExtension
 {
-
     /**
      * @config boolean
      */
@@ -55,14 +55,14 @@ class CMSTweaks extends LeftAndMainExtension
         }
     }
 
-    /* needs to be onBeforeInit() to get called before cms load */
-    public function onBeforeInit()
+    public function onAfterInit()
     {
         $this->setHtmlEditorConfig();
     }
 
     /*
      * Set default options for TinyMCE
+     * Add timestamps to included css files
      */
     public function setHtmlEditorConfig()
     {
@@ -82,8 +82,11 @@ class CMSTweaks extends LeftAndMainExtension
            $timestamped_css = [];
            $base_folder = Director::baseFolder();
            foreach ($css_config as $file) {
+               $file = $this->resolvePath($file);
                if (is_file($base_folder . '/' . $file)) {
                    array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
+               } else {
+                   array_push($timestamped_css, $file);
                }
            }
            HtmlEditorConfig::get('cms')->config()->set('editor_css', $timestamped_css);
@@ -96,14 +99,35 @@ class CMSTweaks extends LeftAndMainExtension
            $timestamped_css = [];
            $regular_css = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
            foreach ($regular_css as $file) {
+               $file = $this->resolvePath($file);
                if (is_file($base_folder . '/' . $file)) {
                    array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
+               } else {
+                   array_push($timestamped_css, $file);
                }
            }
            if (count($timestamped_css > 0)) {
                HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
            }
        }
+    }
+
+    /**
+     * Expand resource path to a relative filesystem path
+     *
+     * @param string $path
+     * @return string
+     * Duplicated from TinyMCEConfig::resolvePath()
+     */
+    protected function resolvePath($path)
+    {
+        if (preg_match('#(?<module>[^/]+/[^/]+)\s*:\s*(?<path>[^:]+)#', $path, $results)) {
+            $module = ModuleLoader::getModule($results['module']);
+            if ($module) {
+                return $module->getRelativeResourcePath($results['path']);
+            }
+        }
+        return $path;
     }
 
     private function ModuleBase()
