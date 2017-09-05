@@ -2,7 +2,14 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.1]
+
+- Switch TinyMCE modifications to onAfterInit()
+- Correctly timestamp TinyMCE style files
+
+
 ## [2.0.0]
+
 - SilverStripe 4
 - Timestamp editor_css & content_css
 - Meta data character / word counters
