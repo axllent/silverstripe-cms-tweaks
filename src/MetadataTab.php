@@ -52,7 +52,7 @@ class MetadataTab extends SiteTreeExtension
 
             $tab->setTitle($tab_title);
             if ($tab_to_right) {
-                $tab->addExtraClass('pull-right');
+                $tab->addExtraClass('ml-auto');
             }
 
             $dependent_tab = $fields->findOrMakeTab('Root.Dependent');
