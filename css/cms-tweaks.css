@@ -8,6 +8,20 @@
     float: right!important;
 }
 
+.cms .cms-content-fields.panel--scrollable {
+    overflow-y: scroll;
+}
+
+.tab-right {
+    order: 99;
+}
+
+@media (min-width: 768px) {
+    .tab-right {
+        margin-left: auto !important;
+    }
+}
+
 .ss-toggle .ui-accordion-content {
     padding: 15px;
 }
