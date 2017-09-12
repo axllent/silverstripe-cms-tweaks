@@ -12,6 +12,11 @@
     overflow-y: scroll;
 }
 
+/* Hide TinyMCE branding */
+.mce-branding-powered-by {
+    display: none!important;
+}
+
 .tab-right {
     order: 99;
 }
