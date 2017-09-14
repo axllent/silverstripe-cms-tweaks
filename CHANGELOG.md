@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.3]
+
+- Hide TinyMCE branding
+
+
 ## [2.0.2]
 
 - Changes for SilverStripe 4-beta3
