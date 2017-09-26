@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.4]
+
+- Prevent wrapping when SiteStree pages panel becomes scrollable
+
+
 ## [2.0.3]
 
 - Hide TinyMCE branding
