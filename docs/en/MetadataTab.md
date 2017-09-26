@@ -10,4 +10,5 @@ Axllent\CMSTweaks\MetadataTab:
   tab_title: 'SEO'              # default `Advanced`
   tab_to_right: true            # default true
   page_name_title: 'Meta Title' # rename "Page name" to "Meta Title"
+  move_title_to_advanced: true  # for users without canCreate() permissions, move Title to `Advanced` tab
 ```
