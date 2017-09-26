@@ -21,10 +21,14 @@
     order: 99;
 }
 
-/* Prevent wrapping when SiteStree pages panel becomes scrollable */
-.cms-content-tools .btn[class*="font-icon-"]::before {
+/* Prevent wrapping when SiteTree pages panel becomes scrollable */
+.btn-toolbar > .btn[class*="font-icon-"]::before {
     margin-right: 1px;
 }
+.btn-toolbar > .btn:not(:first-child) {
+    margin-left: 2px;
+}
+
 
 @media (min-width: 768px) {
     .tab-right {
