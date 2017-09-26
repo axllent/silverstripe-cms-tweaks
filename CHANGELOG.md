@@ -2,6 +2,10 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.5]
+
+- Simplify for users that cannot create. MenuTitle & URLSegment are removed, title is optionally moved to advanced tab
+
 ## [2.0.4]
 
 - Prevent wrapping when SiteStree pages panel becomes scrollable
