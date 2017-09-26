@@ -21,6 +21,11 @@
     order: 99;
 }
 
+/* Prevent wrapping when SiteStree pages panel becomes scrollable */
+.cms-content-tools .btn[class*="font-icon-"]::before {
+    margin-right: 2px;
+}
+
 @media (min-width: 768px) {
     .tab-right {
         margin-left: auto !important;
