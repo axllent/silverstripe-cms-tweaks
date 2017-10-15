@@ -79,3 +79,9 @@ div.notice-wrap p {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
+
+/* Fix https://github.com/silverstripe/silverstripe-framework/issues/7420 bug in SS3.6.2 */
+.treedropdownfield-title .page-icon {
+    float: left;
+    margin-right: 10px;
+}
