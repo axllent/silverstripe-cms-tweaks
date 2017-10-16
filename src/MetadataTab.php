@@ -17,7 +17,6 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\ToggleCompositeField;
 use SilverStripe\View\Requirements;
 
-
 class MetadataTab extends SiteTreeExtension
 {
     /* @config */
@@ -61,7 +60,9 @@ class MetadataTab extends SiteTreeExtension
             $tab_fields = $dependent_tab->fields();
             if ($count = $this->owner->DependentPages()->count()) {
                 $tab->setTitle($tab_title . ' (' . $count .')');
-                $dependency_pages = ToggleCompositeField::create('Dependencies', 'Links to this page (' . $count . ')',
+                $dependency_pages = ToggleCompositeField::create(
+                    'Dependencies',
+                    'Links to this page (' . $count . ')',
                     $tab_fields
                 )->setHeadingLevel(5);
                 $fields->addFieldToTab('Root.' . $tab_title, $dependency_pages);

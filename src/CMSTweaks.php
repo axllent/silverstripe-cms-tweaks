@@ -34,22 +34,22 @@ class CMSTweaks extends LeftAndMainExtension
 
         $config = Config::inst();
 
-		LeftAndMain::config()->update('application_link', Director::baseURL());
+        LeftAndMain::config()->update('application_link', Director::baseURL());
 
-		Requirements::css('axllent/silverstripe-cms-tweaks: css/cms-tweaks.css');
+        Requirements::css('axllent/silverstripe-cms-tweaks: css/cms-tweaks.css');
 
-		Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js');
+        Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js');
 
         if ($config->get('Axllent\\CMSTweaks\\CMSTweaks', 'hide_help')) {
             CMSMenu::remove_menu_item('Help');
         }
 
-		/* Hide "Add new" page, page Settings tab */
+        /* Hide "Add new" page, page Settings tab */
         if (!Permission::check('SITETREE_REORGANISE')) {
             Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/sitetree-noedit.js');
         }
 
-		/* Hide all error pages in SiteTree and Files (modeladmin) */
+        /* Hide all error pages in SiteTree and Files (modeladmin) */
         if (!Permission::check('ADMIN')) {
             Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/hide-error-pages.js');
         }
@@ -76,40 +76,40 @@ class CMSTweaks extends LeftAndMainExtension
             'extended_valid_elements' => 'span[!class|!style],p[class|style]'
        ));
 
-       /* Add file timestamps for TinyMCE's editor_css */
-       $css_config = HtmlEditorConfig::get('cms')->config()->get('editor_css');
-       if (!empty($css_config)) {
-           $timestamped_css = [];
-           $base_folder = Director::baseFolder();
-           foreach ($css_config as $file) {
-               $file = $this->resolvePath($file);
-               if (is_file($base_folder . '/' . $file)) {
-                   array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
-               } else {
-                   array_push($timestamped_css, $file);
-               }
-           }
-           HtmlEditorConfig::get('cms')->config()->set('editor_css', $timestamped_css);
-       }
+        /* Add file timestamps for TinyMCE's editor_css */
+        $css_config = HtmlEditorConfig::get('cms')->config()->get('editor_css');
+        if (!empty($css_config)) {
+            $timestamped_css = [];
+            $base_folder = Director::baseFolder();
+            foreach ($css_config as $file) {
+                $file = $this->resolvePath($file);
+                if (is_file($base_folder . '/' . $file)) {
+                    array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
+                } else {
+                    array_push($timestamped_css, $file);
+                }
+            }
+            HtmlEditorConfig::get('cms')->config()->set('editor_css', $timestamped_css);
+        }
 
-       /* Add file timestamps for TinyMCE's content_css */
-       $css = HtmlEditorConfig::get('cms')->getOption('content_css');
-       if (!empty($css)) {
-           $base_folder = Director::baseFolder();
-           $timestamped_css = [];
-           $regular_css = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
-           foreach ($regular_css as $file) {
-               $file = $this->resolvePath($file);
-               if (is_file($base_folder . '/' . $file)) {
-                   array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
-               } else {
-                   array_push($timestamped_css, $file);
-               }
-           }
-           if (count($timestamped_css > 0)) {
-               HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
-           }
-       }
+        /* Add file timestamps for TinyMCE's content_css */
+        $css = HtmlEditorConfig::get('cms')->getOption('content_css');
+        if (!empty($css)) {
+            $base_folder = Director::baseFolder();
+            $timestamped_css = [];
+            $regular_css = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
+            foreach ($regular_css as $file) {
+                $file = $this->resolvePath($file);
+                if (is_file($base_folder . '/' . $file)) {
+                    array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
+                } else {
+                    array_push($timestamped_css, $file);
+                }
+            }
+            if (count($timestamped_css > 0)) {
+                HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
+            }
+        }
     }
 
     /**
