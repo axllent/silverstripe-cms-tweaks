@@ -2,9 +2,15 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.6]
+
+- Switch to silverstripe-vendormodule
+
+
 ## [2.0.5]
 
 - Simplify for users that cannot create. MenuTitle & URLSegment are removed, title is optionally moved to advanced tab
+
 
 ## [2.0.4]
 
