@@ -36,9 +36,9 @@ class CMSTweaks extends LeftAndMainExtension
 
 		LeftAndMain::config()->update('application_link', Director::baseURL());
 
-		Requirements::css($this->ModuleBase() . '/css/cms-tweaks.css');
+		Requirements::css('axllent/silverstripe-cms-tweaks: css/cms-tweaks.css');
 
-		Requirements::javascript($this->ModuleBase() . '/javascript/cms-tweaks.js');
+		Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js');
 
         if ($config->get('Axllent\\CMSTweaks\\CMSTweaks', 'hide_help')) {
             CMSMenu::remove_menu_item('Help');
@@ -46,12 +46,12 @@ class CMSTweaks extends LeftAndMainExtension
 
 		/* Hide "Add new" page, page Settings tab */
         if (!Permission::check('SITETREE_REORGANISE')) {
-            Requirements::javascript($this->ModuleBase() . '/javascript/sitetree-noedit.js');
+            Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/sitetree-noedit.js');
         }
 
 		/* Hide all error pages in SiteTree and Files (modeladmin) */
         if (!Permission::check('ADMIN')) {
-            Requirements::javascript($this->ModuleBase() . '/javascript/hide-error-pages.js');
+            Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/hide-error-pages.js');
         }
     }
 
@@ -128,10 +128,5 @@ class CMSTweaks extends LeftAndMainExtension
             }
         }
         return $path;
-    }
-
-    private function ModuleBase()
-    {
-        return basename(dirname(dirname(__FILE__)));
     }
 }

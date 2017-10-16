@@ -40,7 +40,7 @@ class MetadataTab extends SiteTreeExtension
         $move_title_to_advanced = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'move_title_to_advanced');
 
         if ($config->get('Axllent\\CMSTweaks\\MetadataTab', 'show_meta_lengths')) {
-            Requirements::javascript($this->ModuleBase() . '/javascript/meta-stats.js');
+            Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/meta-stats.js');
         }
 
         $metadata_tab = $fields->fieldByName('Root.Main.Metadata');
@@ -88,10 +88,5 @@ class MetadataTab extends SiteTreeExtension
         }
 
         return $fields;
-    }
-
-    private function ModuleBase()
-    {
-        return basename(dirname(dirname(__FILE__)));
     }
 }

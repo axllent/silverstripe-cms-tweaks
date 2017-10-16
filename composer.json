@@ -1,7 +1,7 @@
 {
 	"name": "axllent/silverstripe-cms-tweaks",
 	"description": "Several CMS usability improvements",
-	"type": "silverstripe-module",
+	"type": "silverstripe-vendormodule",
 	"homepage": "https://github.com/axllent/silverstripe-cms-tweaks",
 	"keywords": [
 		"silverstripe",
@@ -20,9 +20,16 @@
 		"issues": "https://github.com/axllent/silverstripe-cms-tweaks/issues"
 	},
     "require": {
+        "silverstripe/vendor-plugin": "^1.0",
 		"silverstripe/framework": "^4.0",
         "axllent/silverstripe-form-fields": "*"
 	},
+    "extra": {
+        "expose": [
+            "css",
+            "javascript"
+        ]
+    },
     "autoload": {
         "psr-4": {
             "Axllent\\CMSTweaks\\": "src/"
