@@ -13,5 +13,9 @@ trim_trailing_whitespace = true
 [{*.yml,package.json}]
 indent_size = 2
 
+[*.{ss,js,css}]
+indent_size = 1
+indent_style = tab
+
 # The indent size used in the package.json file cannot be changed:
 # https://github.com/npm/npm/pull/3180#issuecomment-16336516

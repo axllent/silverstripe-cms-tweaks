@@ -5,57 +5,62 @@
 }
 
 .pull-right {
-    float: right!important;
+	float: right!important;
 }
 
 .cms .cms-content-fields.panel--scrollable {
-    overflow-y: scroll;
+	overflow-y: scroll;
 }
+
 
 /* Hide TinyMCE branding */
 .mce-branding-powered-by {
-    display: none!important;
+	display: none!important;
 }
 
 .tab-right {
-    order: 99;
+	order: 99;
 }
+
 
 /* Prevent wrapping when SiteTree pages panel becomes scrollable */
-.btn-toolbar > .btn[class*="font-icon-"]::before {
-    margin-right: 1px;
-}
-.btn-toolbar > .btn:not(:first-child) {
-    margin-left: 2px;
+
+.btn-toolbar>.btn[class*="font-icon-"]::before {
+	margin-right: 1px;
 }
 
+.btn-toolbar>.btn:not(:first-child) {
+	margin-left: 2px;
+}
 
 @media (min-width: 768px) {
-    .tab-right {
-        margin-left: auto !important;
-    }
+	.tab-right {
+		margin-left: auto !important;
+	}
 }
 
 .ss-toggle .ui-accordion-content {
-    padding: 15px;
+	padding: 15px;
 }
 
 .counter-container {
-    position: relative;
+	position: relative;
 }
+
 
 /* Meta Title / Description counters */
 .counter-container .charcounter {
-    display: none;
+	display: none;
 }
+
 .counter-container.counter-visible .charcounter {
-    position: absolute;
-    display: block;
-    top: -22px;
-    right: 22px;
-    background: rgba(0,0,0,0.5);
-    color: #fff;
-    padding: 2px 5px;
-    border-radius: 10px;
-    font-size: 80%;
+	position: absolute;
+	display: block;
+	top: -22px;
+	right: 22px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	padding: 2px 5px;
+	border-radius: 10px;
+	font-size: 80%;
 }
