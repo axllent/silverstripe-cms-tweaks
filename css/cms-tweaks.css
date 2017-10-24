@@ -1,3 +1,10 @@
+/* Remove Firefox focus dotted outlines */
+*:focus {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0;
+}
+
 .cms-logo span {
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -12,7 +19,6 @@
 	overflow-y: scroll;
 }
 
-
 /* Hide TinyMCE branding */
 .mce-branding-powered-by {
 	display: none!important;
@@ -22,9 +28,7 @@
 	order: 99;
 }
 
-
 /* Prevent wrapping when SiteTree pages panel becomes scrollable */
-
 .btn-toolbar>.btn[class*="font-icon-"]::before {
 	margin-right: 1px;
 }
@@ -46,7 +50,6 @@
 .counter-container {
 	position: relative;
 }
-
 
 /* Meta Title / Description counters */
 .counter-container .charcounter {
