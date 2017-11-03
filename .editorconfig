@@ -14,7 +14,7 @@ trim_trailing_whitespace = true
 indent_size = 2
 
 [*.{ss,js,css}]
-indent_size = 1
+indent_size = 4
 indent_style = tab
 
 # The indent size used in the package.json file cannot be changed:
