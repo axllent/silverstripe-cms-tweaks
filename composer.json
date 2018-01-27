@@ -9,7 +9,7 @@
 		"tweaks",
 		"javascript"
 	],
-	"license": "The MIT License (MIT)",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Ralph Slooten",
@@ -22,7 +22,7 @@
     "require": {
         "silverstripe/vendor-plugin": "^1.0",
 		"silverstripe/framework": "^4.0",
-        "axllent/silverstripe-form-fields": "*"
+        "axllent/silverstripe-form-fields": "^1.2.5"
 	},
     "extra": {
         "expose": [

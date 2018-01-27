@@ -2,6 +2,12 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.x]
+
+- Remove TinyMCE branding patch
+- Update composer.json
+
+
 ## [2.0.7]
 
 - Remove Firefox focus dotted outlines
