@@ -22,7 +22,7 @@
     "require": {
         "silverstripe/vendor-plugin": "^1.0",
 		"silverstripe/framework": "^4.0",
-        "axllent/silverstripe-form-fields": "^1.2.5"
+        "axllent/silverstripe-form-fields": "^1.2"
 	},
     "extra": {
         "expose": [
