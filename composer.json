@@ -10,7 +10,7 @@
 		"javascript",
 		"seo"
 	],
-	"license": "The MIT License (MIT)",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Ralph Slooten",
@@ -21,6 +21,6 @@
 		"issues": "https://github.com/axllent/silverstripe-cms-tweaks/issues"
 	},
 	"require": {
-		"silverstripe/framework": "~3.3"
+		"silverstripe/framework": "^3.3"
 	}
 }
