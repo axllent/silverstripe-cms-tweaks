@@ -1,27 +1,27 @@
 {
-	"name": "axllent/silverstripe-cms-tweaks",
-	"description": "Several CMS usability improvements",
-	"type": "silverstripe-vendormodule",
-	"homepage": "https://github.com/axllent/silverstripe-cms-tweaks",
-	"keywords": [
-		"silverstripe",
-		"cms",
-		"tweaks",
-		"javascript"
-	],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Ralph Slooten",
-			"homepage": "http://www.axllent.org/"
-		}
-	],
-	"support": {
-		"issues": "https://github.com/axllent/silverstripe-cms-tweaks/issues"
-	},
+    "name": "axllent/silverstripe-cms-tweaks",
+    "description": "Several CMS usability improvements",
+    "type": "silverstripe-vendormodule",
+    "homepage": "https://github.com/axllent/silverstripe-cms-tweaks",
+    "keywords": [
+        "silverstripe",
+        "cms",
+        "tweaks",
+        "javascript"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ralph Slooten",
+            "homepage": "http://www.axllent.org/"
+        }
+    ],
+    "support": {
+    "issues": "https://github.com/axllent/silverstripe-cms-tweaks/issues"
+    },
     "require": {
         "silverstripe/vendor-plugin": "^1.0",
-		"silverstripe/framework": "^4.0",
+        "silverstripe/framework": "^4.0",
         "axllent/silverstripe-form-fields": "^1.2"
 	},
     "extra": {
