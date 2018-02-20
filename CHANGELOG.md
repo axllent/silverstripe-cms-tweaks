@@ -2,7 +2,7 @@
 
 Notable changes to this project will be documented in this file.
 
-## [2.0.x]
+## [2.0.8]
 
 - Remove TinyMCE branding patch
 - Update composer.json
