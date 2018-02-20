@@ -62,3 +62,9 @@
 	border-radius: 10px;
 	font-size: 80%;
 }
+
+/* Why would placeholder text be almost the same colours as value? */
+input::placeholder,
+textarea::placeholder {
+	color: #a3a8af !important;
+}
