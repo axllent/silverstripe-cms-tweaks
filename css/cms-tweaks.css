@@ -68,3 +68,8 @@ input::placeholder,
 textarea::placeholder {
 	color: #a3a8af !important;
 }
+
+/* gridfield relation editor "link existing" icons left */
+.btn.action_gridfield_relationadd::before {
+	float: left;
+}
