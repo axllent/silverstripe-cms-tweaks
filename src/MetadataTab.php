@@ -44,8 +44,7 @@ class MetadataTab extends SiteTreeExtension
 
         $metadata_tab = $fields->fieldByName('Root.Main.Metadata');
 
-        if (
-            $use_tab &&
+        if ($use_tab &&
             $metadata_tab &&
             $metadata_fields = $metadata_tab->FieldList()
         ) {
@@ -78,7 +77,11 @@ class MetadataTab extends SiteTreeExtension
                 $title_field->setTitle($page_name_title);
             }
 
-            if (!$this->owner->canCreate()) {
+            // Detect whether a user is allowed to create pages in this section
+            $parent = $this->owner->Parent();
+            if (($parent->exists() && !$parent->canAddChildren()) ||
+                (!$parent->exists() && !$this->owner->canCreate())
+            ) {
                 if ($title_field && $move_title_to_advanced) {
                     $meta_description = $fields->dataFieldByName('MetaDescription') ? 'MetaDescription' : false;
                     $fields->addFieldToTab('Root.' . $tab_title, $title_field, $meta_description);
