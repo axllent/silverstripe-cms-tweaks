@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.10]
+
+- Allow `$parent->canAddChildren()` to determine editing capabilities
+
+
 ## [2.0.9]
 
 - Fix gridfield relation editor link button
