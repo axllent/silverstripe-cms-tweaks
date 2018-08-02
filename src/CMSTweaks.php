@@ -74,7 +74,7 @@ class CMSTweaks extends LeftAndMainExtension
             /* The "span[!class]" is to address the issue where lists get inline css style.
             See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html */
             'extended_valid_elements' => 'span[!class|!style],p[class|style]'
-       ));
+        ));
 
         /* Add file timestamps for TinyMCE's editor_css */
         $css_config = HtmlEditorConfig::get('cms')->config()->get('editor_css');
@@ -106,7 +106,7 @@ class CMSTweaks extends LeftAndMainExtension
                     array_push($timestamped_css, $file);
                 }
             }
-            if (count($timestamped_css > 0)) {
+            if (count($timestamped_css) > 0) {
                 HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
             }
         }
