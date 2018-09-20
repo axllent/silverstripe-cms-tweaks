@@ -66,7 +66,6 @@ class CMSTweaks extends LeftAndMainExtension
      */
     public function setHtmlEditorConfig()
     {
-        HtmlEditorConfig::get('cms')->insertButtonsAfter('paste', 'removeformat');
         HtmlEditorConfig::get('cms')->removeButtons('paste');
         HtmlEditorConfig::get('cms')->setOptions(array(
             /* Strip out <div> tags */
