@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.12]
+
+- Remove duplicate 'removeformat' button
+
+
 ## [2.0.11]
 
 - Fix typo in array count
