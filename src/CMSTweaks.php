@@ -1,13 +1,13 @@
 <?php
 /**
-* CMS Tweaks for SilverStripe 4
-* =============================
-*
-* A series of css & JavaScript tweaks for SilverStripe.
-*
-* License: MIT-style license http://opensource.org/licenses/MIT
-* Authors: Techno Joy development team (www.technojoy.co.nz)
-*/
+ * CMS Tweaks for SilverStripe 4
+ * =============================
+ *
+ * A series of css & JavaScript tweaks for SilverStripe.
+ *
+ * License: MIT-style license http://opensource.org/licenses/MIT
+ * Authors: Techno Joy development team (www.technojoy.co.nz)
+ */
 
 namespace Axllent\CMSTweaks;
 
@@ -41,7 +41,18 @@ class CMSTweaks extends LeftAndMainExtension
         Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js');
 
         if ($config->get('Axllent\\CMSTweaks\\CMSTweaks', 'hide_help')) {
+            // backwards compatibility
             CMSMenu::remove_menu_item('Help');
+            // SilverStripe 4.3
+            LeftAndMain::config()->update(
+                'help_links',
+                [
+                    'CMS User help'  => '',
+                    'Developer docs' => '',
+                    'Community'      => '',
+                    'Feedback'       => '',
+                ]
+            );
         }
 
         /* Hide "Add new" page, page Settings tab */
@@ -67,13 +78,13 @@ class CMSTweaks extends LeftAndMainExtension
     public function setHtmlEditorConfig()
     {
         HtmlEditorConfig::get('cms')->removeButtons('paste');
-        HtmlEditorConfig::get('cms')->setOptions(array(
+        HtmlEditorConfig::get('cms')->setOptions([
             /* Strip out <div> tags */
-            'invalid_elements' => 'div',
+            'invalid_elements'        => 'div',
             /* The "span[!class]" is to address the issue where lists get inline css style.
             See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html */
-            'extended_valid_elements' => 'span[!class|!style],p[class|style]'
-        ));
+            'extended_valid_elements' => 'span[!class|!style],p[class|style]',
+        ]);
 
         /* Add file timestamps for TinyMCE's editor_css */
         $css_config = HtmlEditorConfig::get('cms')->config()->get('editor_css');
