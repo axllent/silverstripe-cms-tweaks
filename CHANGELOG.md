@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.13]
+
+- Make hide_help compatible with SilverStripe 4.3
+
+
 ## [2.0.12]
 
 - Remove duplicate 'removeformat' button
