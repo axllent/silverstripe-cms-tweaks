@@ -2,6 +2,10 @@
 
 Notable changes to this project will be documented in this file.
 
+## [1.2.8]
+
+- Fix `count()` check
+
 ## [1.2.7]
 
 - Fix silverstripe/silverstripe-framework#7420 tree-dropdown bug in SS 3.6.2
