@@ -44,7 +44,7 @@ class LeftAndMainCMSTweaksExt extends LeftAndMainExtension
                     array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
                 }
             }
-            if (count($timestamped_css > 0)) {
+            if (count($timestamped_css) > 0) {
                 HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
             }
         }
