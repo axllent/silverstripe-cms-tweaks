@@ -78,12 +78,16 @@ class CMSTweaks extends LeftAndMainExtension
     public function setHtmlEditorConfig()
     {
         HtmlEditorConfig::get('cms')->removeButtons('paste');
+
+        $extendedEls = HtmlEditorConfig::get('cms')->getOption('extended_valid_elements');
+        $extendedEls .= 'span[!class|!style],p[class|style]';
+
         HtmlEditorConfig::get('cms')->setOptions([
             /* Strip out <div> tags */
             'invalid_elements'        => 'div',
             /* The "span[!class]" is to address the issue where lists get inline css style.
             See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html */
-            'extended_valid_elements' => 'span[!class|!style],p[class|style]',
+            'extended_valid_elements' => $extendedEls,
         ]);
 
         /* Add file timestamps for TinyMCE's editor_css */
