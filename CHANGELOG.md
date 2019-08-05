@@ -2,6 +2,12 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.14]
+
+- Allow merging of `HtmlEditorConfig` [extended_valid_elements](https://github.com/axllent/silverstripe-cms-tweaks/pull/7)
+- Code cleanup / PSR2
+
+
 ## [2.0.13]
 
 - Make hide_help compatible with SilverStripe 4.3
