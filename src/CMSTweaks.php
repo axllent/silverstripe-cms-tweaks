@@ -28,6 +28,11 @@ class CMSTweaks extends LeftAndMainExtension
      */
     private static $hide_help = true;
 
+    /**
+     * Init
+     *
+     * @return void
+     */
     public function init()
     {
         parent::init();
@@ -36,9 +41,13 @@ class CMSTweaks extends LeftAndMainExtension
 
         LeftAndMain::config()->update('application_link', Director::baseURL());
 
-        Requirements::css('axllent/silverstripe-cms-tweaks: css/cms-tweaks.css');
+        Requirements::css(
+            'axllent/silverstripe-cms-tweaks: css/cms-tweaks.css'
+        );
 
-        Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js');
+        Requirements::javascript(
+            'axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js'
+        );
 
         if ($config->get('Axllent\\CMSTweaks\\CMSTweaks', 'hide_help')) {
             // backwards compatibility
@@ -57,15 +66,24 @@ class CMSTweaks extends LeftAndMainExtension
 
         /* Hide "Add new" page, page Settings tab */
         if (!Permission::check('SITETREE_REORGANISE')) {
-            Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/sitetree-noedit.js');
+            Requirements::javascript(
+                'axllent/silverstripe-cms-tweaks: javascript/sitetree-noedit.js'
+            );
         }
 
         /* Hide all error pages in SiteTree and Files (modeladmin) */
         if (!Permission::check('ADMIN')) {
-            Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/hide-error-pages.js');
+            Requirements::javascript(
+                'axllent/silverstripe-cms-tweaks: javascript/hide-error-pages.js'
+            );
         }
     }
 
+    /**
+     * Run after init
+     *
+     * @return void
+     */
     public function onAfterInit()
     {
         $this->setHtmlEditorConfig();
@@ -74,6 +92,8 @@ class CMSTweaks extends LeftAndMainExtension
     /*
      * Set default options for TinyMCE
      * Add timestamps to included css files
+     *
+     * @return void
      */
     public function setHtmlEditorConfig()
     {
@@ -81,18 +101,22 @@ class CMSTweaks extends LeftAndMainExtension
 
         $extendedEls = HtmlEditorConfig::get('cms')
             ->getOption('extended_valid_elements');
+        // The "span[!class]" is to address the issue where lists get inline css style.
+        // See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html
         $extendedEls .= ',span[!class|!style],p[class|style]';
+
         $extendedEls = ltrim($extendedEls, ',');
 
-        HtmlEditorConfig::get('cms')->setOptions([
-            /* Strip out <div> tags */
-            'invalid_elements'        => 'div',
-            /* The "span[!class]" is to address the issue where lists get inline css style.
-            See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html */
-            'extended_valid_elements' => $extendedEls,
-        ]);
+        HtmlEditorConfig::get('cms')
+            ->setOptions(
+                [
+                    // Strip out <div> tags
+                    'invalid_elements'        => 'div',
+                    'extended_valid_elements' => $extendedEls,
+                ]
+            );
 
-        /* Add file timestamps for TinyMCE's editor_css */
+        // Add file timestamps for TinyMCE's editor_css
         $css_config = HtmlEditorConfig::get('cms')->config()->get('editor_css');
         if (!empty($css_config)) {
             $timestamped_css = [];
@@ -108,7 +132,7 @@ class CMSTweaks extends LeftAndMainExtension
             HtmlEditorConfig::get('cms')->config()->set('editor_css', $timestamped_css);
         }
 
-        /* Add file timestamps for TinyMCE's content_css */
+        // Add file timestamps for TinyMCE's content_css
         $css = HtmlEditorConfig::get('cms')->getOption('content_css');
         if (!empty($css)) {
             $base_folder = Director::baseFolder();
@@ -130,10 +154,11 @@ class CMSTweaks extends LeftAndMainExtension
 
     /**
      * Expand resource path to a relative filesystem path
-     *
-     * @param string $path
-     * @return string
      * Duplicated from TinyMCEConfig::resolvePath()
+     *
+     * @param string $path path
+     *
+     * @return string
      */
     protected function resolvePath($path)
     {

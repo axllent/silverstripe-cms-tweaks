@@ -1,13 +1,13 @@
 <?php
 /**
-* Metadata Tab
-* ============
-*
-* Moves the Metadata composite field contents info its own "Advanced" tab.
-*
-* License: MIT-style license http://opensource.org/licenses/MIT
-* Authors: Techno Joy development team (www.technojoy.co.nz)
-*/
+ * Metadata Tab
+ * ============
+ *
+ * Moves the Metadata composite field contents info its own "Advanced" tab.
+ *
+ * License: MIT-style license http://opensource.org/licenses/MIT
+ * Authors: Techno Joy development team (www.technojoy.co.nz)
+ */
 
 namespace Axllent\CMSTweaks;
 
@@ -20,33 +20,83 @@ use SilverStripe\View\Requirements;
 class MetadataTab extends SiteTreeExtension
 {
     /* @config */
+    /**
+     * Add an "Advanced" tab
+     *
+     * @var mixed
+     */
     private static $use_tab = true;
+
+    /**
+     * Advanced tab title
+     *
+     * @var string
+     */
     private static $tab_title = 'Advanced';
+
+    /**
+     * Right-align advanced tab
+     *
+     * @var mixed
+     */
     private static $tab_to_right = true;
+
+    /**
+     * Update "Page Title" to "Meta Title"
+     *
+     * @var string
+     */
     private static $page_name_title = 'Meta Title';
+
+    /**
+     * Meta Description title
+     *
+     * @var string
+     */
     private static $meta_description = 'Meta Description';
+
+    /**
+     * Show meta title/description character count
+     *
+     * @var mixed
+     */
     private static $show_meta_lengths = true;
+
+    /**
+     * Move Meta Title to Advances tab for non-admin users
+     *
+     * @var mixed
+     */
     private static $move_title_to_advanced = true;
 
+    /**
+     * Update CMS fields
+     *
+     * @param FieldList $fields form fields
+     *
+     * @return void
+     */
     public function updateCMSFields(\SilverStripe\Forms\FieldList $fields)
     {
         $config = Config::inst();
 
-        $use_tab = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'use_tab');
-        $tab_title = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'tab_title');
-        $tab_to_right = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'tab_to_right');
-        $page_name_title = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'page_name_title');
+        $use_tab                = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'use_tab');
+        $tab_title              = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'tab_title');
+        $tab_to_right           = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'tab_to_right');
+        $page_name_title        = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'page_name_title');
         $move_title_to_advanced = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'move_title_to_advanced');
 
         if ($config->get('Axllent\\CMSTweaks\\MetadataTab', 'show_meta_lengths')) {
-            Requirements::javascript('axllent/silverstripe-cms-tweaks: javascript/meta-stats.js');
+            Requirements::javascript(
+                'axllent/silverstripe-cms-tweaks: javascript/meta-stats.js'
+            );
         }
 
         $metadata_tab = $fields->fieldByName('Root.Main.Metadata');
 
-        if ($use_tab &&
-            $metadata_tab &&
-            $metadata_fields = $metadata_tab->FieldList()
+        if ($use_tab
+            && $metadata_tab
+            && $metadata_fields = $metadata_tab->FieldList()
         ) {
             $tab = $fields->findOrMakeTab('Root.' . $tab_title);
 
@@ -56,9 +106,9 @@ class MetadataTab extends SiteTreeExtension
             }
 
             $dependent_tab = $fields->findOrMakeTab('Root.Dependent');
-            $tab_fields = $dependent_tab->fields();
+            $tab_fields    = $dependent_tab->fields();
             if ($count = $this->owner->DependentPages()->count()) {
-                $tab->setTitle($tab_title . ' (' . $count .')');
+                $tab->setTitle($tab_title . ' (' . $count . ')');
                 $dependency_pages = ToggleCompositeField::create(
                     'Dependencies',
                     'Links to this page (' . $count . ')',
@@ -79,8 +129,8 @@ class MetadataTab extends SiteTreeExtension
 
             // Detect whether a user is allowed to create pages in this section
             $parent = $this->owner->Parent();
-            if (($parent->exists() && !$parent->canAddChildren()) ||
-                (!$parent->exists() && !$this->owner->canCreate())
+            if (($parent->exists() && !$parent->canAddChildren())
+                || (!$parent->exists() && !$this->owner->canCreate())
             ) {
                 if ($title_field && $move_title_to_advanced) {
                     $meta_description = $fields->dataFieldByName('MetaDescription') ? 'MetaDescription' : false;
