@@ -79,8 +79,10 @@ class CMSTweaks extends LeftAndMainExtension
     {
         HtmlEditorConfig::get('cms')->removeButtons('paste');
 
-        $extendedEls = HtmlEditorConfig::get('cms')->getOption('extended_valid_elements');
-        $extendedEls .= 'span[!class|!style],p[class|style]';
+        $extendedEls = HtmlEditorConfig::get('cms')
+            ->getOption('extended_valid_elements');
+        $extendedEls .= ',span[!class|!style],p[class|style]';
+        $extendedEls = ltrim($extendedEls, ',');
 
         HtmlEditorConfig::get('cms')->setOptions([
             /* Strip out <div> tags */
