@@ -24,12 +24,14 @@ use SilverStripe\View\Requirements;
 class CMSTweaks extends LeftAndMainExtension
 {
     /**
+     * Hide the help links in the CMS footer
+     *
      * @config boolean
      */
     private static $hide_help = true;
 
     /**
-     * Init
+     * Init function
      *
      * @return void
      */
@@ -89,7 +91,7 @@ class CMSTweaks extends LeftAndMainExtension
         $this->setHtmlEditorConfig();
     }
 
-    /*
+    /**
      * Set default options for TinyMCE
      * Add timestamps to included css files
      *
