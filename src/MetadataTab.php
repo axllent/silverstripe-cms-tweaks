@@ -13,6 +13,7 @@ namespace Axllent\CMSTweaks;
 
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\ToggleCompositeField;
 use SilverStripe\View\Requirements;
@@ -76,17 +77,17 @@ class MetadataTab extends SiteTreeExtension
      *
      * @return void
      */
-    public function updateCMSFields(\SilverStripe\Forms\FieldList $fields)
+    public function updateCMSFields(FieldList $fields)
     {
         $config = Config::inst();
 
-        $use_tab                = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'use_tab');
-        $tab_title              = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'tab_title');
-        $tab_to_right           = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'tab_to_right');
-        $page_name_title        = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'page_name_title');
-        $move_title_to_advanced = $config->get('Axllent\\CMSTweaks\\MetadataTab', 'move_title_to_advanced');
+        $use_tab                = $config->get(self::class, 'use_tab');
+        $tab_title              = $config->get(self::class, 'tab_title');
+        $tab_to_right           = $config->get(self::class, 'tab_to_right');
+        $page_name_title        = $config->get(self::class, 'page_name_title');
+        $move_title_to_advanced = $config->get(self::class, 'move_title_to_advanced');
 
-        if ($config->get('Axllent\\CMSTweaks\\MetadataTab', 'show_meta_lengths')) {
+        if ($config->get(self::class, 'show_meta_lengths')) {
             Requirements::javascript(
                 'axllent/silverstripe-cms-tweaks: javascript/meta-stats.js'
             );
