@@ -2,6 +2,12 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.1.0]
+
+- Revert merging of `HtmlEditorConfig:extended_valid_elements`
+- Set `CMSTweaks:extended_valid_elements` & `CMSTweaks:invalid_elements` via yaml config
+
+
 ## [2.0.14]
 
 - Allow merging of `HtmlEditorConfig` [extended_valid_elements](https://github.com/axllent/silverstripe-cms-tweaks/pull/7)
