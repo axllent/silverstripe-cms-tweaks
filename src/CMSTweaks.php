@@ -31,6 +31,20 @@ class CMSTweaks extends LeftAndMainExtension
     private static $hide_help = true;
 
     /**
+     * Invalid CMS editor elements
+     *
+     * @var string
+     */
+    private static $invalid_elements = 'div';
+
+    /**
+     * Extended CMS valid editor elements
+     *
+     * @var string
+     */
+    private static $extended_valid_elements = 'span[!class|!style],p[class|style]';
+
+    /**
      * Init function
      *
      * @return void
@@ -41,8 +55,6 @@ class CMSTweaks extends LeftAndMainExtension
 
         $config = Config::inst();
 
-        LeftAndMain::config()->update('application_link', Director::baseURL());
-
         Requirements::css(
             'axllent/silverstripe-cms-tweaks: css/cms-tweaks.css'
         );
@@ -51,7 +63,7 @@ class CMSTweaks extends LeftAndMainExtension
             'axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js'
         );
 
-        if ($config->get('Axllent\\CMSTweaks\\CMSTweaks', 'hide_help')) {
+        if ($config->get(self::class, 'hide_help')) {
             // backwards compatibility
             CMSMenu::remove_menu_item('Help');
             // SilverStripe 4.3
@@ -101,28 +113,29 @@ class CMSTweaks extends LeftAndMainExtension
     {
         HtmlEditorConfig::get('cms')->removeButtons('paste');
 
-        $extendedEls = HtmlEditorConfig::get('cms')
-            ->getOption('extended_valid_elements');
-        // The "span[!class]" is to address the issue where lists get inline css style.
+        $editor_options = [];
+
+        $config = Config::inst();
+
+        if ($invalid_elements = $config->get(self::class, 'invalid_elements')) {
+            $editor_options['invalid_elements'] = $invalid_elements;
+        }
+
         // See and http://martinsikora.com/how-to-make-tinymce-to-output-clean-html
-        $extendedEls .= ',span[!class|!style],p[class|style]';
+        if ($ext_valid_els = $config->get(self::class, 'extended_valid_elements')) {
+            $editor_options['extended_valid_elements'] = $ext_valid_els;
+        }
 
-        $extendedEls = ltrim($extendedEls, ',');
-
-        HtmlEditorConfig::get('cms')
-            ->setOptions(
-                [
-                    // Strip out <div> tags
-                    'invalid_elements'        => 'div',
-                    'extended_valid_elements' => $extendedEls,
-                ]
-            );
+        // Set editor options
+        if (count($editor_options)) {
+            HtmlEditorConfig::get('cms')->setOptions($editor_options);
+        }
 
         // Add file timestamps for TinyMCE's editor_css
         $css_config = HtmlEditorConfig::get('cms')->config()->get('editor_css');
         if (!empty($css_config)) {
             $timestamped_css = [];
-            $base_folder = Director::baseFolder();
+            $base_folder     = Director::baseFolder();
             foreach ($css_config as $file) {
                 $file = $this->resolvePath($file);
                 if (is_file($base_folder . '/' . $file)) {
@@ -131,25 +144,30 @@ class CMSTweaks extends LeftAndMainExtension
                     array_push($timestamped_css, $file);
                 }
             }
-            HtmlEditorConfig::get('cms')->config()->set('editor_css', $timestamped_css);
+            HtmlEditorConfig::get('cms')->config()
+                ->set('editor_css', $timestamped_css);
         }
 
         // Add file timestamps for TinyMCE's content_css
         $css = HtmlEditorConfig::get('cms')->getOption('content_css');
         if (!empty($css)) {
-            $base_folder = Director::baseFolder();
+            $base_folder     = Director::baseFolder();
             $timestamped_css = [];
-            $regular_css = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
+            $regular_css     = preg_split('/,/', $css, -1, PREG_SPLIT_NO_EMPTY);
             foreach ($regular_css as $file) {
                 $file = $this->resolvePath($file);
                 if (is_file($base_folder . '/' . $file)) {
-                    array_push($timestamped_css, $file . '?m=' . filemtime($base_folder . '/' . $file));
+                    array_push(
+                        $timestamped_css,
+                        $file . '?m=' . filemtime($base_folder . '/' . $file)
+                    );
                 } else {
                     array_push($timestamped_css, $file);
                 }
             }
             if (count($timestamped_css) > 0) {
-                HtmlEditorConfig::get('cms')->setOption('content_css', implode(',', $timestamped_css));
+                HtmlEditorConfig::get('cms')
+                    ->setOption('content_css', implode(',', $timestamped_css));
             }
         }
     }
@@ -170,6 +188,7 @@ class CMSTweaks extends LeftAndMainExtension
                 return $module->getRelativeResourcePath($results['path']);
             }
         }
+
         return $path;
     }
 }
