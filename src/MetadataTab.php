@@ -47,14 +47,14 @@ class MetadataTab extends SiteTreeExtension
      *
      * @var string
      */
-    private static $page_name_title = 'Meta Title';
+    private static $page_name_title = 'Meta title';
 
     /**
      * Meta Description title
      *
      * @var string
      */
-    private static $meta_description = 'Meta Description';
+    private static $meta_description = 'Meta description';
 
     /**
      * Show meta title/description character count
