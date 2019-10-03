@@ -1,75 +1,80 @@
 /* Remove Firefox focus dotted outlines */
 *:focus {
-	outline-color: invert;
-	outline-style: none;
-	outline-width: 0;
+  outline-color: invert;
+  outline-style: none;
+  outline-width: 0;
 }
 
 .cms-logo span {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .pull-right {
-	float: right!important;
+  float: right !important;
 }
 
 .cms .cms-content-fields.panel--scrollable {
-	overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .tab-right {
-	order: 99;
+  order: 99;
 }
 
 /* Prevent wrapping when SiteTree pages panel becomes scrollable */
-.btn-toolbar>.btn[class*="font-icon-"]::before {
-	margin-right: 1px;
+.btn-toolbar > .btn[class*="font-icon-"]::before {
+  margin-right: 1px;
 }
 
-.btn-toolbar>.btn:not(:first-child) {
-	margin-left: 2px;
+.btn-toolbar > .btn:not(:first-child) {
+  margin-left: 2px;
 }
 
 @media (min-width: 768px) {
-	.tab-right {
-		margin-left: auto !important;
-	}
+  .tab-right {
+    margin-left: auto !important;
+  }
 }
 
 .ss-toggle .ui-accordion-content {
-	padding: 15px;
+  padding: 15px;
 }
 
 .counter-container {
-	position: relative;
+  position: relative;
 }
 
-/* Meta Title / Description counters */
+/* Meta title / description counters */
 .counter-container .charcounter {
-	display: none;
+  display: none;
 }
 
 .counter-container.counter-visible .charcounter {
-	position: absolute;
-	display: block;
-	top: -22px;
-	right: 22px;
-	background: rgba(0, 0, 0, 0.5);
-	color: #fff;
-	padding: 2px 5px;
-	border-radius: 10px;
-	font-size: 80%;
+  position: absolute;
+  display: block;
+  top: -22px;
+  right: 22px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 10px;
+  font-size: 80%;
 }
 
 /* Why would placeholder text be almost the same colours as value? */
 input::placeholder,
 textarea::placeholder {
-	color: #a3a8af !important;
+  color: #a3a8af !important;
 }
 
-/* gridfield relation editor "link existing" icons left */
+/* Gridfield relation editor "link existing" icons left */
 .btn.action_gridfield_relationadd::before {
-	float: left;
+  float: left;
+}
+
+/* Contain UploadField previews */
+.uploadfield-item__thumbnail {
+  background-size: contain !important;
 }
