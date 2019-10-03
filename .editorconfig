@@ -13,7 +13,11 @@ trim_trailing_whitespace = true
 [{*.yml,package.json}]
 indent_size = 2
 
-[*.{ss,js,css}]
+[*.{js,css}]
+indent_size = 2
+indent_style = space
+
+[*.{ss}]
 indent_size = 4
 indent_style = tab
 
