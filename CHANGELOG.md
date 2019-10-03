@@ -2,6 +2,12 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.1.1]
+
+- Contain `UploadField` previews
+- Use same field label casing as SS4.4
+
+
 ## [2.1.0]
 
 - Revert merging of `HtmlEditorConfig:extended_valid_elements`
