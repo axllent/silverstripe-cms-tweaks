@@ -35,14 +35,17 @@ class CMSTweaks extends LeftAndMainExtension
      *
      * @var string
      */
-    private static $invalid_elements = 'div';
+    private static $invalid_elements = '';
 
     /**
      * Extended CMS valid editor elements
      *
      * @var string
      */
-    private static $extended_valid_elements = 'span[!class|!style],p[class|style]';
+    private static $extended_valid_elements = 'span[!class|!style],p[class|style],' .
+        'img[class|src|alt|title|hspace|vspace|width|height|align|name|usemap|data*],' .
+        'embed[width|height|name|flashvars|src|bgcolor|align|play|loop|quality|' .
+        'allowscriptaccess|type|pluginspage|autoplay]';
 
     /**
      * Init function
