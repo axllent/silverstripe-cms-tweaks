@@ -2,6 +2,12 @@
 
 Notable changes to this project will be documented in this file.
 
+
+## [2.2.0]
+
+- Allow embedding of videos by default
+
+
 ## [2.1.1]
 
 - Contain `UploadField` previews
