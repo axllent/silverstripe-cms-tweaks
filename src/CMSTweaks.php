@@ -1,9 +1,9 @@
 <?php
 /**
- * CMS Tweaks for SilverStripe 4
- * =============================
+ * CMS Tweaks for Silverstripe
+ * ===========================
  *
- * A series of css & JavaScript tweaks for SilverStripe.
+ * A series of css & JavaScript tweaks for Silverstripe.
  *
  * License: MIT-style license http://opensource.org/licenses/MIT
  * Authors: Techno Joy development team (www.technojoy.co.nz)
@@ -70,7 +70,7 @@ class CMSTweaks extends LeftAndMainExtension
             // backwards compatibility
             CMSMenu::remove_menu_item('Help');
             // SilverStripe 4.3
-            LeftAndMain::config()->update(
+            LeftAndMain::config()->set(
                 'help_links',
                 [
                     'CMS User help'  => '',
@@ -188,7 +188,7 @@ class CMSTweaks extends LeftAndMainExtension
         if (preg_match('#(?<module>[^/]+/[^/]+)\s*:\s*(?<path>[^:]+)#', $path, $results)) {
             $module = ModuleLoader::getModule($results['module']);
             if ($module) {
-                return $module->getRelativeResourcePath($results['path']);
+                return $module->getResource($results['path'])->getRelativePath();
             }
         }
 

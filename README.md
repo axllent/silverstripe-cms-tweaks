@@ -1,6 +1,6 @@
-# SilverStripe 4 CMS Tweaks
+# Silverstripe CMS Tweaks
 
-Module to add a series of tweaks/modifications to the SilverStripe CMS.
+Module to add a series of tweaks/modifications to the Silverstripe CMS.
 The goal is to make the CMS less confusing for non-technical users, removing
 functionality some they can't use (ie: non SITETREE_REORGANISE users).
 
@@ -33,4 +33,4 @@ Please refer to the [Metadata Tab documentation](docs/en/MetadataTab.md) for con
 
 ## Requirements
 
-- SilverStripe ^4.0
+- Silverstripe ^4.0 || ^5.0
