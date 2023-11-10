@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.2]
+
+- Fix for Silverstripe 5 (add page btn)
+
+
 ## [2.2.1]
 
 - Support for Silverstripe 5
