@@ -1,4 +1,4 @@
-/* Remove Firefox focus dotted outlines */
+Remove Firefox focus dotted outlines
 *:focus {
   outline-color: invert;
   outline-style: none;
@@ -77,4 +77,9 @@ textarea::placeholder {
 /* Contain UploadField previews */
 .uploadfield-item__thumbnail {
   background-size: contain !important;
+}
+
+/* too many pages is warped, make inline */
+.cms-content-tools li.readonly.jstree-leaf .subtree-list-link {
+  display: inline;
 }
