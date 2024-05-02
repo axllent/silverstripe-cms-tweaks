@@ -20,7 +20,7 @@ use SilverStripe\View\Requirements;
 
 class MetadataTab extends SiteTreeExtension
 {
-    /* @config */
+    // @config
     /**
      * Add an "Advanced" tab
      *
@@ -109,7 +109,6 @@ class MetadataTab extends SiteTreeExtension
             $dependent_tab = $fields->findOrMakeTab('Root.Dependent');
             $tab_fields    = $dependent_tab->fields();
             if ($count = $this->owner->DependentPages()->count()) {
-                $tab->setTitle($tab_title . ' (' . $count . ')');
                 $dependency_pages = ToggleCompositeField::create(
                     'Dependencies',
                     'Links to this page (' . $count . ')',
