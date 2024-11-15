@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.5]
+
+- Replace deprecated extensions with Extension
+
+
 ## [2.2.4]
 
 - Leave "Advanced" tab as that, do not add linking page count
