@@ -11,14 +11,14 @@
 
 namespace Axllent\CMSTweaks;
 
-use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\ToggleCompositeField;
 use SilverStripe\View\Requirements;
 
-class MetadataTab extends SiteTreeExtension
+class MetadataTab extends Extension
 {
     // @config
     /**

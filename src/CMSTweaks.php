@@ -13,15 +13,15 @@ namespace Axllent\CMSTweaks;
 
 use SilverStripe\Admin\CMSMenu;
 use SilverStripe\Admin\LeftAndMain;
-use SilverStripe\Admin\LeftAndMainExtension;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Extension;
 use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 use SilverStripe\Security\Permission;
 use SilverStripe\View\Requirements;
 
-class CMSTweaks extends LeftAndMainExtension
+class CMSTweaks extends Extension
 {
     /**
      * Hide the help links in the CMS footer
@@ -54,8 +54,6 @@ class CMSTweaks extends LeftAndMainExtension
      */
     public function init()
     {
-        parent::init();
-
         $config = Config::inst();
 
         Requirements::css(
@@ -81,14 +79,14 @@ class CMSTweaks extends LeftAndMainExtension
             );
         }
 
-        /* Hide "Add new" page, page Settings tab */
+        // Hide "Add new" page, page Settings tab
         if (!Permission::check('SITETREE_REORGANISE')) {
             Requirements::javascript(
                 'axllent/silverstripe-cms-tweaks: javascript/sitetree-noedit.js'
             );
         }
 
-        /* Hide all error pages in SiteTree and Files (modeladmin) */
+        // Hide all error pages in SiteTree and Files (modeladmin)
         if (!Permission::check('ADMIN')) {
             Requirements::javascript(
                 'axllent/silverstripe-cms-tweaks: javascript/hide-error-pages.js'
