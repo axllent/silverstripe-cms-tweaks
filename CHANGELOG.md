@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.3.0]
+
+- Add support for Silverstripe 6
+
+
 ## [2.2.5]
 
 - Replace deprecated extensions with Extension
