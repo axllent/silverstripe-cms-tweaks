@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Metadata Tab
  * ============
@@ -119,7 +120,10 @@ class MetadataTab extends Extension
             $fields->removeByName('Dependent');
 
             $fields->removeFieldFromTab('Root.Main', 'Metadata');
-            $fields->addFieldsToTab('Root.' . $tab_title, $metadata_fields);
+
+            foreach ($metadata_fields as $f) {
+                $fields->addFieldToTab('Root.' . $tab_title, $f);
+            }
 
             $title_field = $fields->dataFieldByName('Title');
 

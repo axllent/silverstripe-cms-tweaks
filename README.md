@@ -33,4 +33,4 @@ Please refer to the [Metadata Tab documentation](docs/en/MetadataTab.md) for con
 
 ## Requirements
 
-- Silverstripe ^4.0 || ^5.0
+- Silverstripe ^4.0 || ^5.0 || ^6.0

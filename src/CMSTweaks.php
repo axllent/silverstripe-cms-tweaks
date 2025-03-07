@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CMS Tweaks for Silverstripe
  * ===========================
@@ -48,20 +49,31 @@ class CMSTweaks extends Extension
         'allowscriptaccess|type|pluginspage|autoplay]';
 
     /**
-     * Init function
+     * Run after init
      *
      * @return void
      */
-    public function init()
+    public function onAfterInit()
+    {
+        $this->loadModule();
+        $this->setHtmlEditorConfig();
+    }
+
+    /**
+     * LoadModule function
+     *
+     * @return void
+     */
+    public function loadModule()
     {
         $config = Config::inst();
 
         Requirements::css(
-            'axllent/silverstripe-cms-tweaks: css/cms-tweaks.css'
+            'axllent/silverstripe-cms-tweaks: css/cms-tweaks.css',
         );
 
         Requirements::javascript(
-            'axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js'
+            'axllent/silverstripe-cms-tweaks: javascript/cms-tweaks.js',
         );
 
         if ($config->get(self::class, 'hide_help')) {
@@ -75,33 +87,23 @@ class CMSTweaks extends Extension
                     'Developer docs' => '',
                     'Community'      => '',
                     'Feedback'       => '',
-                ]
+                ],
             );
         }
 
         // Hide "Add new" page, page Settings tab
         if (!Permission::check('SITETREE_REORGANISE')) {
             Requirements::javascript(
-                'axllent/silverstripe-cms-tweaks: javascript/sitetree-noedit.js'
+                'axllent/silverstripe-cms-tweaks: javascript/sitetree-noedit.js',
             );
         }
 
-        // Hide all error pages in SiteTree and Files (modeladmin)
+        // Hide all error pages in SiteTree and Files (ModelAdmin)
         if (!Permission::check('ADMIN')) {
             Requirements::javascript(
-                'axllent/silverstripe-cms-tweaks: javascript/hide-error-pages.js'
+                'axllent/silverstripe-cms-tweaks: javascript/hide-error-pages.js',
             );
         }
-    }
-
-    /**
-     * Run after init
-     *
-     * @return void
-     */
-    public function onAfterInit()
-    {
-        $this->setHtmlEditorConfig();
     }
 
     /**
@@ -160,7 +162,7 @@ class CMSTweaks extends Extension
                 if (is_file($base_folder . '/' . $file)) {
                     array_push(
                         $timestamped_css,
-                        $file . '?m=' . filemtime($base_folder . '/' . $file)
+                        $file . '?m=' . filemtime($base_folder . '/' . $file),
                     );
                 } else {
                     array_push($timestamped_css, $file);
