@@ -20,6 +20,7 @@ use SilverStripe\Core\Extension;
 use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorConfig;
 use SilverStripe\Security\Permission;
+use SilverStripe\TinyMCE\TinyMCEConfig;
 use SilverStripe\View\Requirements;
 
 class CMSTweaks extends Extension
@@ -43,10 +44,10 @@ class CMSTweaks extends Extension
      *
      * @var string
      */
-    private static $extended_valid_elements = 'span[!class|!style],p[class|style],' .
-        'img[class|src|alt|title|hspace|vspace|width|height|align|name|usemap|data*],' .
-        'embed[width|height|name|flashvars|src|bgcolor|align|play|loop|quality|' .
-        'allowscriptaccess|type|pluginspage|autoplay]';
+    private static $extended_valid_elements = 'span[!class|!style],p[class|style],'
+        . 'img[class|src|alt|title|hspace|vspace|width|height|align|name|usemap|data*],'
+        . 'embed[width|height|name|flashvars|src|bgcolor|align|play|loop|quality|'
+        . 'allowscriptaccess|type|pluginspage|autoplay]';
 
     /**
      * Run after init
@@ -114,7 +115,14 @@ class CMSTweaks extends Extension
      */
     public function setHtmlEditorConfig()
     {
-        HtmlEditorConfig::get('cms')->removeButtons('paste');
+        $editor = HtmlEditorConfig::get('cms');
+
+        // includes backwards compatibility for SilverStripe 4 & 5
+        if (!$editor instanceof \SilverStripe\Forms\HTMLEditor\TinyMCEConfig && !$editor instanceof TinyMCEConfig) {
+            return;
+        }
+
+        $editor->removeButtons('paste');
 
         $editor_options = [];
 
@@ -131,11 +139,11 @@ class CMSTweaks extends Extension
 
         // Set editor options
         if (count($editor_options)) {
-            HtmlEditorConfig::get('cms')->setOptions($editor_options);
+            $editor->setOptions($editor_options);
         }
 
         // Add file timestamps for TinyMCE's editor_css
-        $css_config = HtmlEditorConfig::get('cms')->config()->get('editor_css');
+        $css_config = $editor->config()->get('editor_css');
         if (!empty($css_config)) {
             $timestamped_css = [];
             $base_folder     = Director::baseFolder();
@@ -147,12 +155,11 @@ class CMSTweaks extends Extension
                     array_push($timestamped_css, $file);
                 }
             }
-            HtmlEditorConfig::get('cms')->config()
-                ->set('editor_css', $timestamped_css);
+            $editor->config()->set('editor_css', $timestamped_css);
         }
 
         // Add file timestamps for TinyMCE's content_css
-        $css = HtmlEditorConfig::get('cms')->getOption('content_css');
+        $css = $editor->getOption('content_css');
         if (!empty($css)) {
             $base_folder     = Director::baseFolder();
             $timestamped_css = [];
@@ -169,8 +176,7 @@ class CMSTweaks extends Extension
                 }
             }
             if (count($timestamped_css) > 0) {
-                HtmlEditorConfig::get('cms')
-                    ->setOption('content_css', implode(',', $timestamped_css));
+                $editor->setOption('content_css', implode(',', $timestamped_css));
             }
         }
     }
