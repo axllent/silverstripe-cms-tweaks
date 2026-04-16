@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.3.2]
+
+- Contain gallery images to thumbnail displays rather than cover
+
+
 ## [2.3.1]
 
 - Fix support for loading editor.css into TinyMCE on Silverstripe 6
