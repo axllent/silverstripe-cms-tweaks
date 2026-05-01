@@ -1,9 +1,3 @@
-Remove Firefox focus dotted outlines *:focus {
-  outline-color: invert;
-  outline-style: none;
-  outline-width: 0;
-}
-
 .cms-logo span {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -75,10 +69,9 @@ textarea::placeholder {
 
 /* Contain UploadField previews */
 .uploadfield-item__thumbnail,
-.gallery-item__thumbnail {
+.gallery-item__thumbnail:not(.gallery-item__thumbnail--folder) {
   background-size: contain !important;
 }
-
 /* too many pages is warped, make inline */
 .cms-content-tools li.readonly.jstree-leaf .subtree-list-link {
   display: inline;
