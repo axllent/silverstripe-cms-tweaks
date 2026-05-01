@@ -2,6 +2,10 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.3.3]
+
+- Fix for folder icons
+
 ## [2.3.2]
 
 - Contain gallery images to thumbnail displays rather than cover
