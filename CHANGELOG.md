@@ -2,6 +2,12 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.4.0]
+
+- Drop support for Silverstripe 4
+- Hide ErrorPages in SiteTree for non-admins (Silverstripe 6 compatible)
+- Exclude ErrorPages in TreeDropdownFields (Silverstripe 6 compatible)
+
 ## [2.3.3]
 
 - Fix for folder icons
@@ -10,120 +16,97 @@ Notable changes to this project will be documented in this file.
 
 - Contain gallery images to thumbnail displays rather than cover
 
-
 ## [2.3.1]
 
 - Fix support for loading editor.css into TinyMCE on Silverstripe 6
-
 
 ## [2.3.0]
 
 - Add support for Silverstripe 6
 
-
 ## [2.2.5]
 
 - Replace deprecated extensions with Extension
-
 
 ## [2.2.4]
 
 - Leave "Advanced" tab as that, do not add linking page count
 
-
 ## [2.2.3]
 
 - Fix "too many pages" misalignment
-
 
 ## [2.2.2]
 
 - Fix for Silverstripe 5 (add page btn)
 
-
 ## [2.2.1]
 
 - Support for Silverstripe 5
 
-
 ## [2.2.0]
 
 - Allow embedding of videos by default
-
 
 ## [2.1.1]
 
 - Contain `UploadField` previews
 - Use same field label casing as SS4.4
 
-
 ## [2.1.0]
 
 - Revert merging of `HtmlEditorConfig:extended_valid_elements`
 - Set `CMSTweaks:extended_valid_elements` & `CMSTweaks:invalid_elements` via yaml config
-
 
 ## [2.0.14]
 
 - Allow merging of `HtmlEditorConfig` [extended_valid_elements](https://github.com/axllent/silverstripe-cms-tweaks/pull/7)
 - Code cleanup / PSR2
 
-
 ## [2.0.13]
 
 - Make hide_help compatible with SilverStripe 4.3
-
 
 ## [2.0.12]
 
 - Remove duplicate 'removeformat' button
 
-
 ## [2.0.11]
 
 - Fix typo in array count
-
 
 ## [2.0.10]
 
 - Allow `$parent->canAddChildren()` to determine editing capabilities
 
-
 ## [2.0.9]
 
 - Fix gridfield relation editor link button
-
 
 ## [2.0.8]
 
 - Remove TinyMCE branding patch
 - Update composer.json
 
-
 ## [2.0.7]
 
 - Remove Firefox focus dotted outlines
-
 
 ## [2.0.6]
 
 - Switch to silverstripe-vendormodule
 
-
 ## [2.0.5]
 
 - Simplify for users that cannot create. MenuTitle & URLSegment are removed, title is optionally moved to advanced tab
-
 
 ## [2.0.4]
 
 - Prevent wrapping when SiteStree pages panel becomes scrollable
 
-
 ## [2.0.3]
 
 - Hide TinyMCE branding
-
 
 ## [2.0.2]
 
@@ -131,12 +114,10 @@ Notable changes to this project will be documented in this file.
 - CSS for flex tab right alignment (order: 99)
 - Force scroll in `.cms-content-fields.panel--scrollable`
 
-
 ## [2.0.1]
 
 - Switch TinyMCE modifications to onAfterInit()
 - Correctly timestamp TinyMCE style files
-
 
 ## [2.0.0]
 
