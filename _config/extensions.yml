@@ -5,3 +5,8 @@ SilverStripe\Admin\LeftAndMain:
 SilverStripe\CMS\Model\SiteTree:
   extensions:
     - Axllent\CMSTweaks\MetadataTab
+    - Axllent\CMSTweaks\ErrorPagePermissions
+
+SilverStripe\CMS\Forms\InternalLinkFormFactory:
+  extensions:
+    - Axllent\CMSTweaks\InternalLinks

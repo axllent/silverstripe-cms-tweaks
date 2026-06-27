@@ -98,13 +98,6 @@ class CMSTweaks extends Extension
                 'axllent/silverstripe-cms-tweaks: javascript/sitetree-noedit.js',
             );
         }
-
-        // Hide all error pages in SiteTree and Files (ModelAdmin)
-        if (!Permission::check('ADMIN')) {
-            Requirements::javascript(
-                'axllent/silverstripe-cms-tweaks: javascript/hide-error-pages.js',
-            );
-        }
     }
 
     /**
