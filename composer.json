@@ -20,7 +20,7 @@
         "issues": "https://github.com/axllent/silverstripe-cms-tweaks/issues"
     },
     "require": {
-        "silverstripe/cms": "^4.0 || ^5.0 || ^6.0",
+        "silverstripe/cms": "^5.0 || ^6.0",
         "axllent/silverstripe-form-fields": "^1.2 || ^2.0"
     },
     "extra": {
